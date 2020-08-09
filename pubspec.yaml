@@ -1,0 +1,39 @@
+name: app
+description: A new Flutter project.
+
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 0.0.1+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  dio: ^3.0.10
+  get: ^3.4.3
+  shared_preferences: ^0.5.8
+  google_fonts: ^1.1.0
+  simple_animations: ^2.2.1
+  animated_text_kit: ^2.2.0
+  animated_text: ^1.0.2
+  lottie: ^0.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.7.5
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/OurRetina_512_300.png"
+  adaptive_icon_background: "#98D4BB" # only available for Android 8.0 devices and above
+  adaptive_icon_foreground: "assets/OurRetina(Eye)_512_300.png" # only available for Android 8.0 devices and above
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/

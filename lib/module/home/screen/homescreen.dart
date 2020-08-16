@@ -1,5 +1,7 @@
+import 'package:app/app/route/approute.dart';
 import 'package:app/common/widget/bannerbutton.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -13,7 +15,12 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             BannerButton(
-              title: 'Minus',
+              title: 'Minus (w/ v)',
+              onTap: () => Get.toNamed(AppRoute.minusPage),
+            ),
+            BannerButton(
+              title: 'Minus (w/ h)',
+              onTap: () => Get.toNamed(AppRoute.facePage),
             )
           ],
         ),

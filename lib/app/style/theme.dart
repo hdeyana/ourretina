@@ -20,7 +20,7 @@ class AppTheme {
         color: Colors.red,
       ),
     ),
-    textTheme: GoogleFonts.balooTammuduTextTheme(),
+    textTheme: GoogleFonts.ibmPlexSerifTextTheme(),
     buttonTheme: ButtonThemeData(
       textTheme: ButtonTextTheme.primary,
       buttonColor: OurRetinaColors.mainGreen,

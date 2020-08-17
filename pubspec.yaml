@@ -20,9 +20,9 @@ dependencies:
   animated_text_kit: ^2.2.0
   animated_text: ^1.0.2
   lottie: ^0.5.1
-  speech_to_text: ^2.4.1
   firebase_ml_vision: ^0.9.6+2
   camera: ^0.5.8+5
+  percent_indicator: ^2.1.5
 
 dev_dependencies:
   flutter_test:

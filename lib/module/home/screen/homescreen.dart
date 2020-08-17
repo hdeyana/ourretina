@@ -18,10 +18,6 @@ class HomeScreen extends StatelessWidget {
               title: 'Minus (w/ v)',
               onTap: () => Get.toNamed(AppRoute.minusPage),
             ),
-            BannerButton(
-              title: 'Minus (w/ h)',
-              onTap: () => Get.toNamed(AppRoute.facePage),
-            )
           ],
         ),
       ),

@@ -22,20 +22,16 @@ class QuarterCircle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isLeft = circleAlignment == CircleAlignment.topLeft || circleAlignment == CircleAlignment.bottomLeft;
-    final isRight = circleAlignment == CircleAlignment.topRight || circleAlignment == CircleAlignment.bottomRight;
-
     return SizedBox(
-      width: 80,
-      height: 80,
-      child: ClipRect(
-        child: CustomPaint(
-          painter: QuarterCirclePainter(
-            circleAlignment: circleAlignment,
-            color: color,
-          ),
-          child: Padding(
-            padding: EdgeInsets.only(right: isLeft ? 36 : 0, left: isRight ? 36 : 0),
+      width: (MediaQuery.of(context).size.width / 2) - (MediaQuery.of(context).size.width / 13),
+      child: AspectRatio(
+        aspectRatio: 1,
+        child: ClipRect(
+          child: CustomPaint(
+            painter: QuarterCirclePainter(
+              circleAlignment: circleAlignment,
+              color: color,
+            ),
             child: child,
           ),
         ),
@@ -53,9 +49,9 @@ class QuarterCirclePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final radius = math.min(size.height, size.width);
-    final offset = circleAlignment == CircleAlignment.topLeft
+    final offset = circleAlignment == CircleAlignment.bottomRight
         ? Offset(.0, .0)
-        : circleAlignment == CircleAlignment.topRight ? Offset(size.width, .0) : circleAlignment == CircleAlignment.bottomLeft ? Offset(.0, size.height) : Offset(size.width, size.height);
+        : circleAlignment == CircleAlignment.bottomLeft ? Offset(size.width, .0) : circleAlignment == CircleAlignment.topRight ? Offset(.0, size.height) : Offset(size.width, size.height);
     canvas.drawCircle(offset, radius, Paint()..color = color);
   }
 

@@ -1,5 +1,4 @@
 import 'package:app/app/route/approute.dart';
-import 'package:app/module/facedetector/screen/facedetectorscreen.dart';
 import 'package:app/module/home/screen/homescreen.dart';
 import 'package:app/module/minus/screen/minustestscreen.dart';
 import 'package:app/module/onboarding/screen/onboardingscreen.dart';
@@ -10,6 +9,5 @@ class RouteApplication {
     GetPage(name: AppRoute.homePage, page: () => HomeScreen(), transition: Transition.noTransition),
     GetPage(name: AppRoute.onboardingPage, page: () => OnboardingScreen()),
     GetPage(name: AppRoute.minusPage, page: () => MinusTestScreen()),
-    GetPage(name: AppRoute.facePage, page: () => FaceDetectorScreen()),
   ];
 }

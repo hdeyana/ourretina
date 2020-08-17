@@ -11,13 +11,13 @@ class AppTheme {
       elevation: 0,
       brightness: Brightness.light,
       textTheme: TextTheme(
-        headline6: TextStyle(
+        headline6: GoogleFonts.dmSerifDisplay(
           fontSize: 18,
-          color: OurRetinaColors.mainGreen,
+          color: OurRetinaColors.mainGreenDark,
         ),
       ),
       iconTheme: IconThemeData(
-        color: Colors.red,
+        color: OurRetinaColors.mainGreenDark,
       ),
     ),
     textTheme: GoogleFonts.nunitoSansTextTheme().copyWith(

@@ -5,9 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTheme {
   static final main = ThemeData(
     primaryColor: OurRetinaColors.mainGreen,
-    canvasColor: Colors.white,
+    canvasColor: OurRetinaColors.greenCanvas,
     appBarTheme: AppBarTheme(
-      color: Colors.white,
+      color: OurRetinaColors.greenCanvas,
       elevation: 0,
       brightness: Brightness.light,
       textTheme: TextTheme(
@@ -20,10 +20,35 @@ class AppTheme {
         color: Colors.red,
       ),
     ),
-    textTheme: GoogleFonts.nunitoSansTextTheme(),
+    textTheme: GoogleFonts.nunitoSansTextTheme().copyWith(
+      headline1: GoogleFonts.dmSerifDisplay(
+        fontSize: 48,
+        color: OurRetinaColors.mainGreenDark,
+      ),
+      headline2: GoogleFonts.dmSerifDisplay(
+        fontSize: 36,
+        color: OurRetinaColors.mainGreenDark,
+      ),
+      headline3: GoogleFonts.dmSerifDisplay(
+        fontSize: 24,
+        color: OurRetinaColors.mainGreenDark,
+      ),
+      headline4: GoogleFonts.dmSerifDisplay(
+        fontSize: 18,
+        color: OurRetinaColors.mainGreenDark,
+      ),
+      headline5: GoogleFonts.dmSerifDisplay(
+        fontSize: 16,
+        color: OurRetinaColors.mainGreenDark,
+      ),
+      headline6: GoogleFonts.dmSerifDisplay(
+        fontSize: 14,
+        color: OurRetinaColors.mainGreenDark,
+      ),
+    ),
     buttonTheme: ButtonThemeData(
       textTheme: ButtonTextTheme.primary,
-      buttonColor: OurRetinaColors.mainGreen,
+      buttonColor: OurRetinaColors.mainGreenDark,
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,

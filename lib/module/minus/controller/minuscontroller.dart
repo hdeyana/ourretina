@@ -20,13 +20,11 @@ class MinusController extends BaseController {
   double angleZ = 0;
   double angleY = 0;
   FaceDirection facedirection = FaceDirection.nan;
-  double leftEyeOpen = 0;
-  double rightEyeOpen = 0;
 
   @override
   void onInit() {
     super.onInit();
-    init();
+    // init();
   }
 
   @override
@@ -88,8 +86,6 @@ class MinusController extends BaseController {
             angleY = faces[0].headEulerAngleY;
             angleZ = faces[0].headEulerAngleZ;
             defineHeadDirection();
-            leftEyeOpen = faces[0].leftEyeOpenProbability;
-            rightEyeOpen = faces[0].rightEyeOpenProbability;
 
             if (_mounted) update();
           }

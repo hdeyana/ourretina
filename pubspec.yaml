@@ -23,6 +23,7 @@ dependencies:
   firebase_ml_vision: ^0.9.6+2
   camera: ^0.5.8+5
   percent_indicator: ^2.1.5
+  carousel_slider: ^2.2.1
 
 dev_dependencies:
   flutter_test:

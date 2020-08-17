@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'OurRetina',
       theme: AppTheme.main,
-      initialRoute: AppRoute.onboardingPage,
+      initialRoute: AppRoute.homePage,
       getPages: RouteApplication.getroute,
     );
   }

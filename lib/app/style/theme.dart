@@ -45,11 +45,17 @@ class AppTheme {
         fontSize: 14,
         color: OurRetinaColors.mainGreenDark,
       ),
+      bodyText1: GoogleFonts.nunitoSans(
+        color: OurRetinaColors.mainGreenText,
+      ),
+      bodyText2: GoogleFonts.nunitoSans(
+        color: OurRetinaColors.mainGreenText,
+      ),
+      subtitle1: GoogleFonts.nunitoSans(
+        color: OurRetinaColors.mainGreenText,
+      ),
     ),
-    buttonTheme: ButtonThemeData(
-      textTheme: ButtonTextTheme.primary,
-      buttonColor: OurRetinaColors.mainGreenDark,
-    ),
+    buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary, buttonColor: OurRetinaColors.mainGreenDark, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100))),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: Colors.grey[100],

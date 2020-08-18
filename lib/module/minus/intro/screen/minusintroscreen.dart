@@ -29,7 +29,7 @@ class MinusIntroScreen extends StatelessWidget {
                       enlargeCenterPage: true,
                       scrollPhysics: NeverScrollableScrollPhysics(),
                       enlargeStrategy: CenterPageEnlargeStrategy.height),
-                  items: [1, 2, 3, 4].map((i) {
+                  items: controller.slides.map((i) {
                     return Builder(
                       builder: (BuildContext context) {
                         return Container(
@@ -37,7 +37,7 @@ class MinusIntroScreen extends StatelessWidget {
                           child: Card(
                             elevation: 0,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                            child: Text(i.toString()),
+                            child: i,
                           ),
                         );
                       },

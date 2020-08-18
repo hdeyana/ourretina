@@ -1,9 +1,10 @@
-import 'package:app/app/assets/appassets.dart';
 import 'package:app/app/route/approute.dart';
+import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeBottom extends StatelessWidget {
+  final GlobalController gc = Get.find();
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -30,7 +31,10 @@ class HomeBottom extends StatelessWidget {
                 )),
             Spacer(),
             RaisedButton(
-              onPressed: () => Get.toNamed(AppRoute.minusIntroPage),
+              onPressed: () {
+                if (gc.isCameraPolicyRead) return Get.toNamed(AppRoute.minusIntroPage);
+                return Get.toNamed(AppRoute.cameraPermision);
+              },
               child: Text('Mulai'),
             )
           ],

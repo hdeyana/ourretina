@@ -1,14 +1,17 @@
 import 'package:app/app/controller/basecontroller.dart';
+import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:app/module/minus/intro/widget/arahkankepala.dart';
 import 'package:app/module/minus/intro/widget/cobagerakankepala.dart';
 import 'package:app/module/minus/intro/widget/rotatingletter.dart';
 import 'package:app/module/minus/intro/widget/simpanperangkat.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MinusIntroController extends BaseController {
   int currentSlide = 0;
   CarouselController slideController = CarouselController();
+  final GlobalController gc = Get.find();
 
   final slides = <Widget>[RotatingLetter(), ArahkanKepala(), CobaGerakanKepala(), SimpanPerangkat()];
   final titleAndDesc = [
@@ -21,6 +24,7 @@ class MinusIntroController extends BaseController {
   nextSlide() {
     switch (currentSlide) {
       case 3:
+        gc.trainComplete();
         break;
       default:
         currentSlide++;

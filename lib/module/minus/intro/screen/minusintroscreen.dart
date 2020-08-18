@@ -1,11 +1,13 @@
 import 'dart:io';
 
+import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:app/module/minus/intro/controller/minusintrocontroller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MinusIntroScreen extends StatelessWidget {
+  final GlobalController gc = Get.find();
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MinusIntroController>(
@@ -70,7 +72,7 @@ class MinusIntroScreen extends StatelessWidget {
                     child: Text(controller.currentSlide != 3 ? 'Lanjut' : 'Mulai Test'),
                     elevation: 0,
                   ),
-                  if (controller.currentSlide != 3)
+                  if (controller.currentSlide != 3 && gc.isTrained)
                     FlatButton(
                       onPressed: () {},
                       child: Text('Lewati'),

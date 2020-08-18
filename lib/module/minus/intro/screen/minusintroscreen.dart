@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:app/module/minus/intro/controller/minusintrocontroller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,7 @@ class MinusIntroScreen extends StatelessWidget {
       builder: (controller) {
         return WillPopScope(
           onWillPop: () async {
+            if (Platform.isIOS) return true;
             return controller.backSlide();
           },
           child: Scaffold(

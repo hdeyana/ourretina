@@ -24,6 +24,7 @@ dependencies:
   camera: ^0.5.8+5
   percent_indicator: ^2.1.5
   carousel_slider: ^2.2.1
+  timer_count_down: ^1.0.4+1
 
 dev_dependencies:
   flutter_test:

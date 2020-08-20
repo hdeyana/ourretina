@@ -32,8 +32,7 @@ class HomeBottom extends StatelessWidget {
             Spacer(),
             RaisedButton(
               onPressed: () {
-                if (gc.isCameraPolicyRead) return Get.toNamed(AppRoute.minusIntroPage);
-                return Get.toNamed(AppRoute.cameraPermision);
+                Get.toNamed(AppRoute.minusIntroPage);
               },
               child: Text('Mulai'),
             )

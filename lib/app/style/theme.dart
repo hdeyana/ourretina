@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTheme {
   static final main = ThemeData(
     primaryColor: OurRetinaColors.mainGreen,
+    accentColor: OurRetinaColors.mainGreenDark,
     canvasColor: OurRetinaColors.greenCanvas,
     appBarTheme: AppBarTheme(
       color: OurRetinaColors.greenCanvas,

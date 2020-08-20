@@ -7,4 +7,5 @@ class OurRetinaColors {
   static const mainGreen = Color(0xff98D4BB);
 
   static const greenCanvas = Color(0xffd8e6e0);
+  static const redError = Color(0xffd36362);
 }

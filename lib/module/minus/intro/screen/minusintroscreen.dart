@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:app/common/controller/camerafacecontroller.dart';
 import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:app/module/minus/intro/controller/minusintrocontroller.dart';
@@ -77,12 +75,12 @@ class _MinusIntroScreenState extends State<MinusIntroScreen> {
                 Spacer(),
                 RaisedButton(
                   onPressed: () => controller.nextSlide(),
-                  child: Text(controller.currentSlide != 3 ? 'Lanjut' : 'Mulai Test'),
+                  child: Text(controller.currentSlide != 4 ? 'Lanjut' : 'Mulai Test'),
                   elevation: 0,
                 ),
-                if (controller.currentSlide != 3 && gc.isTrained)
+                if (controller.currentSlide != 4 && gc.isTrained)
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () => controller.gotoMinusTest(),
                     child: Text('Lewati'),
                   ),
                 SizedBox(height: controller.currentSlide != 3 ? 16 : 60),

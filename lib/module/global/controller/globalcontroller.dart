@@ -6,7 +6,7 @@ class GlobalController extends BaseController with GlobalSharedPref {
   bool isTrained = false;
 
   GlobalController() {
-    // load();
+    load();
   }
 
   load() async {

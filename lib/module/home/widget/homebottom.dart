@@ -30,12 +30,25 @@ class HomeBottom extends StatelessWidget {
                   textAlign: TextAlign.center,
                 )),
             Spacer(),
-            RaisedButton(
-              onPressed: () {
-                Get.toNamed(AppRoute.minusIntroPage);
-              },
-              child: Text('Mulai'),
-            )
+            Container(
+              width: 150,
+              child: RaisedButton(
+                onPressed: () {
+                  Get.toNamed(AppRoute.minusIntroPage);
+                },
+                child: Text('Mulai'),
+              ),
+            ),
+            Container(
+              width: 150,
+              child: OutlineButton(
+                onPressed: () {},
+                child: Text(
+                  'Hasil',
+                  style: Theme.of(context).textTheme.button.copyWith(color: Theme.of(context).accentColor),
+                ),
+              ),
+            ),
           ],
         ),
       ),

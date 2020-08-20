@@ -29,7 +29,7 @@ class MinusIntroController extends BaseController {
     switch (currentSlide) {
       case lastLength:
         gc.trainComplete();
-        gotoMinusTest();
+        Get.offNamed(AppRoute.minusResultPage);
         break;
       default:
         currentSlide++;

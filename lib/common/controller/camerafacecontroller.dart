@@ -29,8 +29,8 @@ class CameraFaceController extends BaseController {
 
   close() async {
     _mounted = false;
-    await cameraController.dispose();
-    await faceDetector.close();
+    await cameraController?.dispose();
+    await faceDetector?.close();
   }
 
   initializeCamera() async {

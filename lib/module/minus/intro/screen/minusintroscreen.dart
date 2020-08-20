@@ -82,6 +82,7 @@ class _MinusIntroScreenState extends State<MinusIntroScreen> {
                   FlatButton(
                     onPressed: () => controller.gotoMinusTest(),
                     child: Text('Lewati'),
+                    textColor: Theme.of(context).accentColor,
                   ),
                 SizedBox(height: controller.currentSlide != 3 ? 16 : 60),
               ],

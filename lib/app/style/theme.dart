@@ -7,6 +7,7 @@ class AppTheme {
     primaryColor: OurRetinaColors.mainGreen,
     accentColor: OurRetinaColors.mainGreenDark,
     canvasColor: OurRetinaColors.greenCanvas,
+    buttonColor: OurRetinaColors.mainGreenDark,
     appBarTheme: AppBarTheme(
       color: OurRetinaColors.greenCanvas,
       elevation: 0,
@@ -56,7 +57,13 @@ class AppTheme {
         color: OurRetinaColors.mainGreenText,
       ),
     ),
-    buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary, buttonColor: OurRetinaColors.mainGreenDark, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100))),
+    buttonTheme: ButtonThemeData(
+      textTheme: ButtonTextTheme.primary,
+      buttonColor: OurRetinaColors.mainGreenDark,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(100),
+      ),
+    ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: Colors.grey[100],

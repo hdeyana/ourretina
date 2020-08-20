@@ -42,7 +42,9 @@ class HomeBottom extends StatelessWidget {
             Container(
               width: 150,
               child: OutlineButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed(AppRoute.minusResultHistoryPage);
+                },
                 child: Text(
                   'Hasil',
                   style: Theme.of(context).textTheme.button.copyWith(color: Theme.of(context).accentColor),

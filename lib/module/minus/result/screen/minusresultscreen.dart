@@ -33,6 +33,11 @@ class MinusResultScreen extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(height: 16),
+          Text(
+            '18 July 2020',
+            textAlign: TextAlign.center,
+          ),
           SizedBox(height: 24),
           Center(
             child: Container(
@@ -47,7 +52,7 @@ class MinusResultScreen extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 24),
+          SizedBox(height: 36),
           Text(
             'Disclaimer',
             textAlign: TextAlign.center,

@@ -11,7 +11,7 @@ class RouteApplication {
   static final getroute = <GetPage>[
     GetPage(name: AppRoute.homePage, page: () => HomeScreen(), transition: Transition.noTransition),
     GetPage(name: AppRoute.minusIntroPage, page: () => MinusIntroScreen()),
-    GetPage(name: AppRoute.cameraPermision, page: () => CameraPermissionScreen()),
+    GetPage(name: AppRoute.cameraPermision, page: () => CameraPermissionScreen(), fullscreenDialog: true),
     GetPage(name: AppRoute.minusTestPage, page: () => MinusTestScreen()),
     GetPage(name: AppRoute.minusResultPage, page: () => MinusResultScreen()),
     GetPage(name: AppRoute.minusResultHistoryPage, page: () => HasilTestScreen()),

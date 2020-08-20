@@ -2,9 +2,22 @@ import 'package:app/app/route/approute.dart';
 import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 
-class CameraPermissionScreen extends StatelessWidget {
+class CameraPermissionScreen extends StatefulWidget {
+  @override
+  _CameraPermissionScreenState createState() => _CameraPermissionScreenState();
+}
+
+class _CameraPermissionScreenState extends State<CameraPermissionScreen> {
   final GlobalController gc = Get.find();
+
+  @override
+  void dispose() {
+    super.dispose();
+    Permission.camera.request();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,10 +69,9 @@ class CameraPermissionScreen extends StatelessWidget {
           SizedBox(height: 24),
           RaisedButton(
             onPressed: () {
-              gc.cameraRead();
-              Get.offNamed(AppRoute.minusIntroPage);
+              Get.back();
             },
-            child: Text('Mulai'),
+            child: Text('Berikan Permisi'),
           )
         ],
       ),

@@ -1,10 +1,13 @@
 import 'dart:typed_data';
 
 import 'package:app/app/controller/basecontroller.dart';
+import 'package:app/app/route/approute.dart';
 import 'package:camera/camera.dart';
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class CameraFaceController extends BaseController {
   CameraController cameraController;
@@ -34,12 +37,19 @@ class CameraFaceController extends BaseController {
   }
 
   initializeCamera() async {
-    try {
-      cameras = await availableCameras();
-      final c = cameras[1] != null ? cameras[1] : cameras[0];
-      onNewCameraSelected(c);
-    } catch (e) {
-      debugPrint(e.toString());
+    final status = await Permission.camera.status;
+    print(status);
+
+    if (status == PermissionStatus.granted) {
+      try {
+        cameras = await availableCameras();
+        final c = cameras[1] != null ? cameras[1] : cameras[0];
+        onNewCameraSelected(c);
+      } catch (e) {
+        debugPrint(e.toString());
+      }
+    } else {
+      Get.toNamed(AppRoute.cameraPermision);
     }
   }
 

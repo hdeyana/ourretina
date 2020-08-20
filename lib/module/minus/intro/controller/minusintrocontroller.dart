@@ -1,5 +1,6 @@
 import 'package:app/app/controller/basecontroller.dart';
 import 'package:app/app/route/approute.dart';
+import 'package:app/common/controller/camerafacecontroller.dart';
 import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:app/module/minus/intro/widget/arahkankepala.dart';
 import 'package:app/module/minus/intro/widget/cobagerakankepala.dart';
@@ -14,22 +15,37 @@ class MinusIntroController extends BaseController {
   int currentSlide = 0;
   CarouselController slideController = CarouselController();
   final GlobalController gc = Get.find();
+  final CameraFaceController cam = Get.find();
+
   static const int lastLength = 4;
 
-  final slides = <Widget>[TujuanTest(), RotatingLetter(), ArahkanKepala(), CobaGerakanKepala(), SimpanPerangkat()];
+  final slides = <Widget>[
+    TujuanTest(),
+    SimpanPerangkat(),
+    RotatingLetter(),
+    ArahkanKepala(),
+    CobaGerakanKepala(),
+  ];
+
   final titleAndDesc = [
     {'title': 'Test Ketajaman Mata', 'desc': 'Test ini bertujuan untuk menguji ketajaman mata anda'},
+    {'title': 'Test Jarak Jauh', 'desc': 'Simpan perangkat  anda secara vertikal lalu posisikan tubuh anda dari perangkat pada jarak 50cm sampai 100cm'},
     {'title': 'Perhatikan Orientasi Simbol', 'desc': 'Pada tes ini anda diminta untuk menebak orientasi simbol yang muncul selama 7 detik'},
     {'title': 'Arahkan Kepala', 'desc': 'Jawab dengan menggerakkan kepala menuju pojok layar sesuai dengan susunan tombol hingga timer pada tombol selesai'},
     {'title': 'Coba Gerakan Kepala Anda', 'desc': ''},
-    {'title': 'Simpan Perangkat', 'desc': 'Simpan perangkat  anda secara vertikal lalu posisikan tubuh anda dari perangkat pada jarak 50cm sampai 100cm'},
   ];
 
   nextSlide() {
     switch (currentSlide) {
       case lastLength:
         gc.trainComplete();
-        Get.offNamed(AppRoute.minusResultPage);
+        Get.offNamed(AppRoute.minusTestPage);
+        break;
+      case lastLength - 1:
+        cam.initializeCamera();
+        currentSlide++;
+        slideController.nextPage();
+        update();
         break;
       default:
         currentSlide++;

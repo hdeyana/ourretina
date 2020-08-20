@@ -68,6 +68,5 @@ class MinusResultScreen extends StatelessWidget {
         ],
       ),
     );
-    ;
   }
 }

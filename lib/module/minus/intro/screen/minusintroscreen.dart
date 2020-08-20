@@ -43,6 +43,7 @@ class _MinusIntroScreenState extends State<MinusIntroScreen> {
                       height: MediaQuery.of(context).size.width - 48,
                       enableInfiniteScroll: false,
                       enlargeCenterPage: true,
+                      scrollPhysics: NeverScrollableScrollPhysics(),
                       onPageChanged: (i, _) => controller.setSlide(i),
                       enlargeStrategy: CenterPageEnlargeStrategy.height),
                   items: controller.slides.map((i) {
@@ -75,7 +76,7 @@ class _MinusIntroScreenState extends State<MinusIntroScreen> {
                 Spacer(),
                 RaisedButton(
                   onPressed: () => controller.nextSlide(),
-                  child: Text(controller.currentSlide != 4 ? 'Lanjut' : 'Mulai Test'),
+                  child: Text(controller.currentSlide < 3 ? 'Lanjut' : controller.currentSlide == 3 ? 'Coba' : 'Mulai Test'),
                   elevation: 0,
                 ),
                 if (controller.currentSlide != 4 && gc.isTrained)
@@ -84,7 +85,7 @@ class _MinusIntroScreenState extends State<MinusIntroScreen> {
                     child: Text('Lewati'),
                     textColor: Theme.of(context).accentColor,
                   ),
-                SizedBox(height: controller.currentSlide != 3 ? 16 : 60),
+                SizedBox(height: 24),
               ],
             ),
           ),

@@ -1,9 +1,6 @@
 import 'package:app/common/widget/arrowdirection.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:simple_animations/simple_animations.dart';
-import 'package:supercharged/supercharged.dart';
-import 'package:timer_count_down/timer_count_down.dart';
 
 class HeadDirection extends StatelessWidget {
   @override

@@ -20,8 +20,9 @@ class TujuanTest extends StatelessWidget {
         Center(
           child: ClipRect(
             child: MirrorAnimation<double>(
-              tween: 0.0.tweenTo(8.0),
-              duration: 2.seconds,
+              tween: 0.0.tweenTo(4.0),
+              duration: 1.seconds,
+              curve: Curves.easeInOut,
               builder: (context, _, value) {
                 return BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: value, sigmaY: value),

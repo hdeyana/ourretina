@@ -13,6 +13,5 @@ class HasilTestScreen extends StatelessWidget {
         children: [HasiTestItem()],
       ),
     );
-    ;
   }
 }

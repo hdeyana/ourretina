@@ -1,4 +1,5 @@
 import 'package:app/app/controller/basecontroller.dart';
+import 'package:app/app/route/approute.dart';
 import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:app/module/minus/intro/widget/arahkankepala.dart';
 import 'package:app/module/minus/intro/widget/cobagerakankepala.dart';
@@ -25,12 +26,18 @@ class MinusIntroController extends BaseController {
     switch (currentSlide) {
       case 3:
         gc.trainComplete();
+        Get.offNamed(AppRoute.minusTestPage);
         break;
       default:
         currentSlide++;
         slideController.nextPage();
         update();
     }
+  }
+
+  setSlide(int index) {
+    currentSlide = index;
+    update();
   }
 
   backSlide() {

@@ -6,7 +6,7 @@ import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class MinusController extends BaseController {
+class CameraFaceController extends BaseController {
   CameraController cameraController;
   List<CameraDescription> cameras = [];
   final FaceDetector faceDetector = FirebaseVision.instance.faceDetector(
@@ -22,12 +22,6 @@ class MinusController extends BaseController {
   FaceDirection facedirection = FaceDirection.nan;
 
   @override
-  void onInit() {
-    super.onInit();
-    // init();
-  }
-
-  @override
   void onClose() {
     super.onClose();
     close();
@@ -39,7 +33,7 @@ class MinusController extends BaseController {
     await faceDetector.close();
   }
 
-  init() async {
+  initializeCamera() async {
     try {
       cameras = await availableCameras();
       final c = cameras[1] != null ? cameras[1] : cameras[0];

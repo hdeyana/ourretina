@@ -9,21 +9,13 @@ class CameraPermissionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Penggunaan Camera'),
-      ),
+      appBar: AppBar(),
       body: ListView(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.symmetric(horizontal: 24),
         children: [
-          Lottie.asset(
-            'assets/camera.json',
-            height: 200,
-            animate: true,
-            repeat: true,
-          ),
           Text(
             'Applikasi ini bergantung dengan kamera untuk:',
-            style: Theme.of(context).textTheme.headline5,
+            style: Theme.of(context).textTheme.headline6,
           ),
           SizedBox(height: 24),
           ListTile(
@@ -49,7 +41,7 @@ class CameraPermissionScreen extends StatelessWidget {
           SizedBox(height: 24),
           Text(
             'Privasi berkaitan dengan kamera:',
-            style: Theme.of(context).textTheme.headline5,
+            style: Theme.of(context).textTheme.headline6,
           ),
           SizedBox(height: 24),
           ListTile(

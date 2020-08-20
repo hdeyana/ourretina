@@ -5,7 +5,12 @@ import 'package:simple_animations/simple_animations.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:timer_count_down/timer_count_down.dart';
 
-class SymbolText extends StatelessWidget {
+class SymbolText extends StatefulWidget {
+  @override
+  _SymbolTextState createState() => _SymbolTextState();
+}
+
+class _SymbolTextState extends State<SymbolText> with AnimationMixin {
   @override
   Widget build(BuildContext context) {
     return Center(

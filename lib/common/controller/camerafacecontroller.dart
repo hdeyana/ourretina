@@ -1,7 +1,7 @@
-import 'dart:typed_data';
-
 import 'package:app/app/controller/basecontroller.dart';
 import 'package:app/app/route/approute.dart';
+import 'package:app/common/model/facedirectios.dart';
+import 'package:app/common/utils/camerautils.dart';
 import 'package:camera/camera.dart';
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'package:flutter/foundation.dart';
@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class CameraFaceController extends BaseController {
+class CameraFaceController extends BaseController with CameraUtil {
   CameraController cameraController;
   List<CameraDescription> cameras = [];
   final FaceDetector faceDetector = FirebaseVision.instance.faceDetector(
@@ -17,12 +17,10 @@ class CameraFaceController extends BaseController {
   );
   bool _mounted = true;
   bool _isDetecting = false;
-  double smilingProbability = 0;
   Rect faceRect;
-  int numberOfFaces = 0;
   double angleZ = 0;
   double angleY = 0;
-  FaceDirection facedirection = FaceDirection.nan;
+  FaceDirections facedirection = FaceDirections.nan;
 
   @override
   void onClose() {
@@ -80,16 +78,13 @@ class CameraFaceController extends BaseController {
 
           _isDetecting = true;
 
-          final image = FirebaseVisionImage.fromBytes(_concatenatePlanes(data.planes), _buildMetaData(data));
+          final image = FirebaseVisionImage.fromBytes(concatenatePlanes(data.planes), buildMetaData(data, cameras[1]));
           final List<Face> faces = await faceDetector.processImage(image);
           _isDetecting = false;
           if (faces.isNotEmpty) {
-            smilingProbability = faces[0].smilingProbability;
             faceRect = faces[0].boundingBox;
-            numberOfFaces = faces.length;
-            angleY = faces[0].headEulerAngleY;
-            angleZ = faces[0].headEulerAngleZ;
-            defineHeadDirection();
+            final dirc = defineHeadDirection(faces[0].headEulerAngleY, faces[0].headEulerAngleZ);
+            facedirection = dirc;
 
             if (_mounted) update();
           }
@@ -99,66 +94,4 @@ class CameraFaceController extends BaseController {
       debugPrint(e.toString());
     }
   }
-
-  void defineHeadDirection() {
-    if (angleY < -15 && angleZ < -3)
-      facedirection = FaceDirection.topright;
-    else if (angleY > 15 && angleZ > 3)
-      facedirection = FaceDirection.topleft;
-    else if (angleY > 15 && angleZ < 3)
-      facedirection = FaceDirection.bottomleft;
-    else if (angleY < -15 && angleZ > 3)
-      facedirection = FaceDirection.bottomright;
-    else
-      facedirection = FaceDirection.nan;
-  }
-
-  Uint8List _concatenatePlanes(List<Plane> planes) {
-    final WriteBuffer allBytes = WriteBuffer();
-    for (Plane plane in planes) {
-      allBytes.putUint8List(plane.bytes);
-    }
-    return allBytes.done().buffer.asUint8List();
-  }
-
-  FirebaseVisionImageMetadata _buildMetaData(
-    CameraImage image,
-  ) {
-    return FirebaseVisionImageMetadata(
-      rawFormat: image.format.raw,
-      size: Size(image.width.toDouble(), image.height.toDouble()),
-      rotation: _rotationIntToImageRotation(),
-      planeData: image.planes.map(
-        (Plane plane) {
-          return FirebaseVisionImagePlaneMetadata(
-            bytesPerRow: plane.bytesPerRow,
-            height: plane.height,
-            width: plane.width,
-          );
-        },
-      ).toList(),
-    );
-  }
-
-  ImageRotation _rotationIntToImageRotation() {
-    switch (cameras[1].sensorOrientation) {
-      case 0:
-        return ImageRotation.rotation0;
-      case 90:
-        return ImageRotation.rotation90;
-      case 180:
-        return ImageRotation.rotation180;
-      default:
-        assert(cameras[1].sensorOrientation == 270);
-        return ImageRotation.rotation270;
-    }
-  }
-}
-
-enum FaceDirection {
-  topright,
-  topleft,
-  bottomright,
-  bottomleft,
-  nan,
 }

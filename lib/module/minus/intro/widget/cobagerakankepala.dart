@@ -1,4 +1,5 @@
 import 'package:app/common/controller/camerafacecontroller.dart';
+import 'package:app/common/model/facedirectios.dart';
 import 'package:app/common/widget/arrowdirection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,19 +18,19 @@ class CobaGerakanKepala extends StatelessWidget {
         children: [
           ArrowDirection(
             directions: ArrowDirections.down,
-            circleColor: cam.facedirection == FaceDirection.topleft ? Theme.of(context).accentColor : null,
+            circleColor: cam.facedirection == FaceDirections.topleft ? Theme.of(context).accentColor : null,
           ),
           ArrowDirection(
             directions: ArrowDirections.up,
-            circleColor: cam.facedirection == FaceDirection.topright ? Theme.of(context).accentColor : null,
+            circleColor: cam.facedirection == FaceDirections.topright ? Theme.of(context).accentColor : null,
           ),
           ArrowDirection(
             directions: ArrowDirections.left,
-            circleColor: cam.facedirection == FaceDirection.bottomleft ? Theme.of(context).accentColor : null,
+            circleColor: cam.facedirection == FaceDirections.bottomleft ? Theme.of(context).accentColor : null,
           ),
           ArrowDirection(
             directions: ArrowDirections.right,
-            circleColor: cam.facedirection == FaceDirection.bottomright ? Theme.of(context).accentColor : null,
+            circleColor: cam.facedirection == FaceDirections.bottomright ? Theme.of(context).accentColor : null,
           ),
         ],
       );

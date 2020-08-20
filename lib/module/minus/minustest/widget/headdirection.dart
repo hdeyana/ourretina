@@ -1,8 +1,14 @@
 import 'package:app/common/widget/arrowdirection.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:simple_animations/simple_animations.dart';
 
-class HeadDirection extends StatelessWidget {
+class HeadDirection extends StatefulWidget {
+  @override
+  _HeadDirectionState createState() => _HeadDirectionState();
+}
+
+class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

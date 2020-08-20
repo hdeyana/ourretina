@@ -1,4 +1,3 @@
-import 'package:app/app/route/approute.dart';
 import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -1,5 +1,5 @@
 import 'package:app/module/minus/minustest/controller/minustestcontroller.dart';
-import 'package:app/module/minus/minustest/widget/headdirection.dart';
+import 'package:app/module/minus/minustest/widget/errortext.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,13 +10,13 @@ class MinusTestScreen extends StatelessWidget {
       init: MinusTestController(),
       builder: (controller) {
         return Scaffold(
-            body: Stack(
-          children: [
-            HeadDirection()
-            // TutupMata(),
-            // ErrorText(),
-          ],
-        ));
+          body: Stack(
+            children: [
+              controller.steps[controller.currentStep],
+              ErrorText(),
+            ],
+          ),
+        );
       },
     );
   }

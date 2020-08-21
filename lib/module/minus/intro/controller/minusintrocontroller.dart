@@ -14,7 +14,7 @@ class MinusIntroController extends BaseController {
   CarouselController slideController = CarouselController();
   final GlobalController gc = Get.find();
 
-  static const int lastLength = 4;
+  static const int lastLength = 3;
 
   final slides = <Widget>[
     TujuanTest(),
@@ -36,7 +36,6 @@ class MinusIntroController extends BaseController {
         gc.trainComplete();
         Get.offNamed(AppRoute.minusSimpanJauh);
         break;
-
       default:
         currentSlide++;
         slideController.nextPage();

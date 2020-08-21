@@ -1,7 +1,10 @@
+import 'package:app/app/assets/appassets.dart';
 import 'package:app/app/route/approute.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:simple_animations/simple_animations.dart';
 import 'package:sa_anicoto/sa_anicoto.dart';
 import 'package:supercharged/supercharged.dart';
@@ -11,13 +14,14 @@ class SimpantTeleponJauh extends StatefulWidget {
   _SimpantTeleponJauhState createState() => _SimpantTeleponJauhState();
 }
 
-class _SimpantTeleponJauhState extends State<SimpantTeleponJauh> with AnimationMixin {
+class _SimpantTeleponJauhState extends State<SimpantTeleponJauh> with AnimationMixin, WidgetsBindingObserver {
   final duration = 7.0;
   Animation<double> durationTween;
 
   @override
   void initState() {
     super.initState();
+    checkCameraPermision();
 
     durationTween = duration.tweenTo(0.0).animatedBy(controller);
     controller.play(duration: duration.seconds);
@@ -27,6 +31,23 @@ class _SimpantTeleponJauhState extends State<SimpantTeleponJauh> with AnimationM
         Get.offNamed(AppRoute.minusTestPage);
       }
     });
+  }
+
+  checkCameraPermision() async {
+    final status = await Permission.camera.status;
+    if (status != PermissionStatus.granted) Get.toNamed(AppRoute.cameraPermision);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // App state changed before we got the chance to initialize.
+
+    if (state == AppLifecycleState.inactive) {
+      controller.stop();
+    } else if (state == AppLifecycleState.resumed) {
+      controller.reset();
+      controller.play();
+    }
   }
 
   @override
@@ -39,9 +60,10 @@ class _SimpantTeleponJauhState extends State<SimpantTeleponJauh> with AnimationM
           children: <Widget>[
             Text(
               "Simpan Smartphone anda dan",
-              style: TextStyle(fontSize: 18),
               textAlign: TextAlign.center,
             ),
+            SizedBox(height: 16),
+            SvgPicture.asset(AppAssets.headJarak),
             SizedBox(height: 16),
             Text(
               "Menjauh",

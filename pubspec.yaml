@@ -25,6 +25,7 @@ dependencies:
   percent_indicator: ^2.1.5
   carousel_slider: ^2.2.1
   permission_handler: ^5.0.1+1
+  flutter_svg: ^0.18.0
 
 dev_dependencies:
   flutter_test:

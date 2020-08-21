@@ -29,10 +29,11 @@ class _TutupMataState extends State<TutupMata> with AnimationMixin {
     controller.play(duration: duration.seconds);
 
     _minusTestController.warningText.listen((v) {
-      if (v.isEmpty)
+      if (v.isEmpty) {
         controller.play();
-      else
+      } else {
         controller.stop();
+      }
     });
 
     controller.addStatusListener((status) {

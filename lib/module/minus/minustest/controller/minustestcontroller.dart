@@ -37,8 +37,8 @@ class MinusTestController extends BaseController with CameraUtil {
 
   @override
   void onInit() {
-    super.onInit();
     initializeCamera();
+    super.onInit();
   }
 
   @override
@@ -71,12 +71,13 @@ class MinusTestController extends BaseController with CameraUtil {
       if (cameras.isEmpty) {
         try {
           cameras = await availableCameras();
-          final c = cameras[1] != null ? cameras[1] : cameras[0];
-          onNewCameraSelected(c);
         } catch (e) {
           debugPrint(e.toString());
         }
       }
+
+      final c = cameras[1] != null ? cameras[1] : null;
+      onNewCameraSelected(c);
     } else {
       Get.toNamed(AppRoute.cameraPermision);
     }
@@ -85,7 +86,6 @@ class MinusTestController extends BaseController with CameraUtil {
   void onNewCameraSelected(CameraDescription cameraDescription) async {
     if (minuscameraController != null) {
       await minuscameraController.dispose();
-      await minuscameraController.stopImageStream();
     }
     minuscameraController = CameraController(
       cameraDescription,
@@ -95,11 +95,11 @@ class MinusTestController extends BaseController with CameraUtil {
 
     try {
       await minuscameraController.initialize();
+
       startStream();
     } on CameraException catch (e) {
       print(e);
     }
-    update();
   }
 
   void startStream() {

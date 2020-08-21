@@ -1,4 +1,3 @@
-import 'package:app/common/controller/camerafacecontroller.dart';
 import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:app/module/minus/intro/controller/minusintrocontroller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -16,7 +15,6 @@ class _MinusIntroScreenState extends State<MinusIntroScreen> {
   @override
   void initState() {
     super.initState();
-    Get.put(CameraFaceController());
   }
 
   @override

@@ -23,6 +23,8 @@ class _TutupMataState extends State<TutupMata> with AnimationMixin {
   @override
   void initState() {
     super.initState();
+    _minusTestController.initializeCamera();
+
     durationTween = duration.tweenTo(0.0).animatedBy(controller);
     controller.play(duration: duration.seconds);
 

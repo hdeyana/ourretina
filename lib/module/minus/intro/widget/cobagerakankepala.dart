@@ -1,13 +1,37 @@
-import 'package:app/common/controller/camerafacecontroller.dart';
 import 'package:app/common/model/facedirectios.dart';
 import 'package:app/common/widget/arrowdirection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CobaGerakanKepala extends StatelessWidget {
+class CobaGerakanKepala extends StatefulWidget {
+  @override
+  _CobaGerakanKepalaState createState() => _CobaGerakanKepalaState();
+}
+
+class _CobaGerakanKepalaState extends State<CobaGerakanKepala> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<CameraFaceController>(builder: (cam) {
+    return GetBuilder(builder: (cam) {
+      if (cam.cameraController == null)
+        return Container(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Tidak Dapat Mengakses Kamera'),
+                RaisedButton(
+                  onPressed: () => cam.initializeCamera(),
+                  child: Text('Hidupkan Kamera'),
+                )
+              ],
+            ),
+          ),
+        );
       return GridView.count(
         crossAxisCount: 2,
         mainAxisSpacing: 24,

@@ -20,7 +20,7 @@ class MinusTestController extends BaseController with CameraUtil {
   List<MinusTestModel> answer = [];
 
   final steps = <Widget>[
-    // TutupMata(false),
+    TutupMata(false),
     MinusTestWidget(),
     TutupMata(true),
     MinusTestWidget(),
@@ -31,10 +31,14 @@ class MinusTestController extends BaseController with CameraUtil {
     update();
   }
 
+  addAnswer(MinusTestModel test) {
+    answer.add(test);
+  }
+
   @override
   void onInit() {
     super.onInit();
-    // initializeCamera();
+    initializeCamera();
   }
 
   @override
@@ -43,7 +47,7 @@ class MinusTestController extends BaseController with CameraUtil {
     close();
   }
 
-  CameraController cameraController;
+  CameraController minuscameraController;
   List<CameraDescription> cameras = [];
   final FaceDetector faceDetector = FirebaseVision.instance.faceDetector(
     FaceDetectorOptions(enableClassification: true, mode: FaceDetectorMode.accurate, enableTracking: true),
@@ -51,11 +55,11 @@ class MinusTestController extends BaseController with CameraUtil {
   bool _mounted = true;
   bool _isDetecting = false;
   Rect faceRect;
-  FaceDirections facedirection = FaceDirections.nan;
+  Rx<FaceDirections> facedirection = FaceDirections.nan.obs;
 
   close() async {
     _mounted = false;
-    await cameraController?.dispose();
+    await minuscameraController?.dispose();
     await faceDetector?.close();
   }
 
@@ -64,12 +68,14 @@ class MinusTestController extends BaseController with CameraUtil {
     print(status);
 
     if (status == PermissionStatus.granted) {
-      try {
-        cameras = await availableCameras();
-        final c = cameras[1] != null ? cameras[1] : cameras[0];
-        onNewCameraSelected(c);
-      } catch (e) {
-        debugPrint(e.toString());
+      if (cameras.isEmpty) {
+        try {
+          cameras = await availableCameras();
+          final c = cameras[1] != null ? cameras[1] : cameras[0];
+          onNewCameraSelected(c);
+        } catch (e) {
+          debugPrint(e.toString());
+        }
       }
     } else {
       Get.toNamed(AppRoute.cameraPermision);
@@ -77,17 +83,18 @@ class MinusTestController extends BaseController with CameraUtil {
   }
 
   void onNewCameraSelected(CameraDescription cameraDescription) async {
-    if (cameraController != null) {
-      await cameraController.dispose();
+    if (minuscameraController != null) {
+      await minuscameraController.dispose();
+      await minuscameraController.stopImageStream();
     }
-    cameraController = CameraController(
+    minuscameraController = CameraController(
       cameraDescription,
       ResolutionPreset.high,
       enableAudio: false,
     );
 
     try {
-      await cameraController.initialize();
+      await minuscameraController.initialize();
       startStream();
     } on CameraException catch (e) {
       print(e);
@@ -97,7 +104,7 @@ class MinusTestController extends BaseController with CameraUtil {
 
   void startStream() {
     try {
-      cameraController.startImageStream((data) async {
+      minuscameraController.startImageStream((data) async {
         if (_mounted && !_isDetecting) {
           if (_isDetecting) return;
 
@@ -110,7 +117,7 @@ class MinusTestController extends BaseController with CameraUtil {
             warningText.value = "";
             faceRect = faces[0].boundingBox;
             final dirc = defineHeadDirection(faces[0].headEulerAngleY, faces[0].headEulerAngleZ);
-            facedirection = dirc;
+            facedirection.value = dirc;
 
             if (_mounted) update();
           } else {

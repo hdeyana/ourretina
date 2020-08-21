@@ -3,24 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class CameraPermissionScreen extends StatefulWidget {
-  @override
-  _CameraPermissionScreenState createState() => _CameraPermissionScreenState();
-}
-
-class _CameraPermissionScreenState extends State<CameraPermissionScreen> {
+class CameraPermissionScreen extends StatelessWidget {
   final GlobalController gc = Get.find();
-
-  @override
-  void dispose() {
-    super.dispose();
-    Permission.camera.request();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Izinkan Kamera'),
+      ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 24),
         children: [
@@ -44,11 +35,6 @@ class _CameraPermissionScreenState extends State<CameraPermissionScreen> {
             title: Text('Membaca gerakan gesture kepala anda.'),
             contentPadding: EdgeInsets.all(0),
           ),
-          ListTile(
-            leading: Icon(Icons.remove_red_eye),
-            title: Text('Memastikan mata anda tidak tertutup (BETA).'),
-            contentPadding: EdgeInsets.all(0),
-          ),
           SizedBox(height: 24),
           Text(
             'Privasi berkaitan dengan kamera:',
@@ -67,8 +53,10 @@ class _CameraPermissionScreenState extends State<CameraPermissionScreen> {
           ),
           SizedBox(height: 24),
           RaisedButton(
-            onPressed: () {
-              Get.back();
+            onPressed: () async {
+              final status = await Permission.camera.request();
+
+              if (status == PermissionStatus.granted) Get.back();
             },
             child: Text('Berikan Permisi'),
           )

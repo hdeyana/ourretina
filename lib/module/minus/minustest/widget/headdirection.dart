@@ -1,7 +1,12 @@
+import 'package:app/common/model/facedirectios.dart';
 import 'package:app/common/widget/arrowdirection.dart';
+import 'package:app/module/minus/minustest/controller/minustestcontroller.dart';
+import 'package:app/module/minus/minustest/controller/testcontroller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:simple_animations/simple_animations.dart';
+import 'package:supercharged/supercharged.dart';
 
 class HeadDirection extends StatefulWidget {
   @override
@@ -9,6 +14,37 @@ class HeadDirection extends StatefulWidget {
 }
 
 class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
+  final duration = 3.0;
+  Animation<double> durationTween;
+
+  MinusTestController _minusTestController = Get.find();
+  TestController _testController = Get.find();
+
+  @override
+  void initState() {
+    super.initState();
+
+    durationTween = 0.0.tweenTo(duration).animatedBy(controller);
+
+    _minusTestController.warningText.listen((v) {
+      if (v.isEmpty)
+        controller.play(duration: duration.seconds);
+      else
+        controller.stop();
+    });
+
+    _minusTestController.facedirection.listen((FaceDirections v) {
+      controller.reset();
+      if (v != FaceDirections.nan) controller.play(duration: duration.seconds);
+    });
+
+    controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        _testController.nextTest(_minusTestController.facedirection.value.index);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,58 +57,80 @@ class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
               style: Theme.of(context).textTheme.headline4,
               textAlign: TextAlign.center,
             ),
-            GridView.count(
-              crossAxisCount: 2,
-              childAspectRatio: 1,
-              padding: const EdgeInsets.all(36.0),
-              physics: NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              children: [
-                CircularPercentIndicator(
-                  radius: 125,
-                  lineWidth: 8,
-                  circularStrokeCap: CircularStrokeCap.round,
-                  percent: 0.0,
-                  progressColor: Theme.of(context).accentColor,
-                  center: ArrowDirection(
-                    directions: ArrowDirections.down,
-                    circleColor: Theme.of(context).accentColor,
-                  ),
+            SizedBox(height: 24),
+            Container(
+              width: double.maxFinite,
+              child: Obx(
+                () => Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CircularPercentIndicator(
+                          radius: 125,
+                          lineWidth: 8,
+                          circularStrokeCap: CircularStrokeCap.round,
+                          percent: _minusTestController.facedirection.value == FaceDirections.topleft ? (durationTween.value / duration) : 0.0,
+                          progressColor: Theme.of(context).accentColor,
+                          center: ArrowDirection(
+                            directions: ArrowDirections.down,
+                            circleColor: _minusTestController.facedirection.value == FaceDirections.topleft ? Theme.of(context).accentColor : null,
+                          ),
+                        ),
+                        SizedBox(width: 24),
+                        CircularPercentIndicator(
+                          radius: 125,
+                          lineWidth: 8,
+                          circularStrokeCap: CircularStrokeCap.round,
+                          percent: _minusTestController.facedirection.value == FaceDirections.topright ? (durationTween.value / duration) : 0.0,
+                          progressColor: Theme.of(context).accentColor,
+                          center: ArrowDirection(
+                            directions: ArrowDirections.up,
+                            circleColor: _minusTestController.facedirection.value == FaceDirections.topright ? Theme.of(context).accentColor : null,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 24),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        CircularPercentIndicator(
+                          radius: 125,
+                          lineWidth: 8,
+                          circularStrokeCap: CircularStrokeCap.round,
+                          percent: _minusTestController.facedirection.value == FaceDirections.bottomleft ? (durationTween.value / duration) : 0.0,
+                          progressColor: Theme.of(context).accentColor,
+                          center: ArrowDirection(
+                            directions: ArrowDirections.left,
+                            circleColor: _minusTestController.facedirection.value == FaceDirections.bottomleft ? Theme.of(context).accentColor : null,
+                          ),
+                        ),
+                        SizedBox(width: 24),
+                        CircularPercentIndicator(
+                          radius: 125,
+                          lineWidth: 8,
+                          circularStrokeCap: CircularStrokeCap.round,
+                          percent: _minusTestController.facedirection.value == FaceDirections.bottomright ? (durationTween.value / duration) : 0.0,
+                          progressColor: Theme.of(context).accentColor,
+                          center: ArrowDirection(
+                            directions: ArrowDirections.right,
+                            circleColor: _minusTestController.facedirection.value == FaceDirections.bottomright ? Theme.of(context).accentColor : null,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
-                CircularPercentIndicator(
-                  radius: 125,
-                  lineWidth: 8,
-                  circularStrokeCap: CircularStrokeCap.round,
-                  percent: 0.0,
-                  progressColor: Theme.of(context).accentColor,
-                  center: ArrowDirection(
-                    directions: ArrowDirections.up,
-                  ),
-                ),
-                CircularPercentIndicator(
-                  radius: 125,
-                  lineWidth: 8,
-                  circularStrokeCap: CircularStrokeCap.round,
-                  percent: 0.0,
-                  progressColor: Theme.of(context).accentColor,
-                  center: ArrowDirection(
-                    directions: ArrowDirections.left,
-                  ),
-                ),
-                CircularPercentIndicator(
-                  radius: 125,
-                  lineWidth: 8,
-                  circularStrokeCap: CircularStrokeCap.round,
-                  percent: 0.0,
-                  progressColor: Theme.of(context).accentColor,
-                  center: ArrowDirection(
-                    directions: ArrowDirections.right,
-                  ),
-                ),
-              ],
+              ),
             ),
             Text(
-              'ATAS',
+              _minusTestController.facedirection.value.index == 0
+                  ? "BAWAH"
+                  : _minusTestController.facedirection.value.index == 1
+                      ? "ATAS"
+                      : _minusTestController.facedirection.value.index == 2 ? "KIRI" : _minusTestController.facedirection.value.index == 3 ? "KANAN" : "",
               style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),

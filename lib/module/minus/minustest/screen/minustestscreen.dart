@@ -13,7 +13,7 @@ class MinusTestScreen extends StatelessWidget {
           body: Stack(
             children: [
               controller.steps[controller.currentStep],
-              ErrorText(),
+              // ErrorText(),
             ],
           ),
         );

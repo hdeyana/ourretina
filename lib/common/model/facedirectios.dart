@@ -10,10 +10,10 @@ extension Direction on FaceDirections {
   double getAngle() {
     switch (this) {
       case FaceDirections.topleft:
-        return 0.5;
+        return -0.5;
         break;
       case FaceDirections.topright:
-        return -0.5;
+        return 0;
         break;
       case FaceDirections.bottomleft:
         return 1;

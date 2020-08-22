@@ -74,7 +74,7 @@ class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
                           percent: _minusTestController.facedirection.value == FaceDirections.topleft ? (durationTween.value / duration) : 0.0,
                           progressColor: Theme.of(context).accentColor,
                           center: ArrowDirection(
-                            directions: ArrowDirections.down,
+                            directions: ArrowDirections.up,
                             circleColor: _minusTestController.facedirection.value == FaceDirections.topleft ? Theme.of(context).accentColor : null,
                           ),
                         ),
@@ -86,7 +86,7 @@ class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
                           percent: _minusTestController.facedirection.value == FaceDirections.topright ? (durationTween.value / duration) : 0.0,
                           progressColor: Theme.of(context).accentColor,
                           center: ArrowDirection(
-                            directions: ArrowDirections.up,
+                            directions: ArrowDirections.right,
                             circleColor: _minusTestController.facedirection.value == FaceDirections.topright ? Theme.of(context).accentColor : null,
                           ),
                         ),
@@ -115,7 +115,7 @@ class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
                           percent: _minusTestController.facedirection.value == FaceDirections.bottomright ? (durationTween.value / duration) : 0.0,
                           progressColor: Theme.of(context).accentColor,
                           center: ArrowDirection(
-                            directions: ArrowDirections.right,
+                            directions: ArrowDirections.down,
                             circleColor: _minusTestController.facedirection.value == FaceDirections.bottomright ? Theme.of(context).accentColor : null,
                           ),
                         ),
@@ -127,10 +127,10 @@ class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
             ),
             Text(
               _minusTestController.facedirection.value.index == 0
-                  ? "BAWAH"
+                  ? "ATAS"
                   : _minusTestController.facedirection.value.index == 1
-                      ? "ATAS"
-                      : _minusTestController.facedirection.value.index == 2 ? "KIRI" : _minusTestController.facedirection.value.index == 3 ? "KANAN" : "",
+                      ? "KANAN"
+                      : _minusTestController.facedirection.value.index == 2 ? "KIRI" : _minusTestController.facedirection.value.index == 3 ? "BAWAH" : "",
               style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),

@@ -2,6 +2,7 @@ import 'package:app/app/route/approute.dart';
 import 'package:app/app/route/retinaroute.dart';
 import 'package:app/app/style/theme.dart';
 import 'package:app/module/global/controller/globalcontroller.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -10,11 +11,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'generated/l10n.dart';
 
-void main() {
+void main() async {
   runApp(MyApp());
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   Wakelock.enable();
+  await Firebase.initializeApp();
 }
 
 class MyApp extends StatefulWidget {

@@ -29,6 +29,13 @@ class _TutupMataState extends State<TutupMata> with AnimationMixin {
     durationTween = duration.tweenTo(0.0).animatedBy(controller);
     controller.play(duration: duration.seconds);
 
+    _minusTestController.warningText.listen((v) {
+      if (v.isEmpty)
+        controller.play(duration: duration.seconds);
+      else
+        controller.stop();
+    });
+
     controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         _minusTestController.nextStep();
@@ -43,7 +50,9 @@ class _TutupMataState extends State<TutupMata> with AnimationMixin {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          SvgPicture.asset(widget.isLeft ? AppAssets.headTutupMata : AppAssets.headTutupMataKanan),
+          SvgPicture.asset(widget.isLeft
+              ? AppAssets.headTutupMata
+              : AppAssets.headTutupMataKanan),
           Text(
             "Tutup \nMata ${widget.isLeft ? 'Kiri' : 'Kanan'}",
             style: Theme.of(context).textTheme.headline1,

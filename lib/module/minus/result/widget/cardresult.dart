@@ -1,4 +1,4 @@
-import 'package:app/app/style/color.dart';
+import 'package:app/common/utils/resultutils.dart';
 import 'package:flutter/material.dart';
 
 class CardResult extends StatelessWidget {
@@ -11,7 +11,7 @@ class CardResult extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
-        color: defineColor(context),
+        color: ResultUtils.defineColor(context, result, total),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -36,12 +36,5 @@ class CardResult extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  defineColor(BuildContext context) {
-    final score = result / total;
-    if (score < 0.3) return OurRetinaColors.redError;
-    if (score < 0.7) return Colors.orange;
-    return Theme.of(context).accentColor;
   }
 }

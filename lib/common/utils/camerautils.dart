@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui';
 
@@ -8,16 +9,29 @@ import 'package:flutter/foundation.dart';
 
 mixin CameraUtil {
   FaceDirections defineHeadDirection(double angleY, double angleZ) {
-    if (angleY < -15 && angleZ < -3)
-      return FaceDirections.topright;
-    else if (angleY > 15 && angleZ > 3)
-      return FaceDirections.topleft;
-    else if (angleY > 15 && angleZ < 3)
-      return FaceDirections.bottomleft;
-    else if (angleY < -15 && angleZ > 3)
-      return FaceDirections.bottomright;
-    else
-      return FaceDirections.nan;
+    if (Platform.isAndroid) {
+      if ((angleY < -15) && angleZ < -3)
+        return FaceDirections.topright;
+      else if (angleY > 15 && angleZ > 3)
+        return FaceDirections.topleft;
+      else if (angleY > 15 && angleZ < 3)
+        return FaceDirections.bottomleft;
+      else if (angleY < -15 && angleZ > 3)
+        return FaceDirections.bottomright;
+      else
+        return FaceDirections.nan;
+    } else {
+      if ((angleY < 15) && angleZ < -3)
+        return FaceDirections.topleft;
+      else if (angleY > -15 && angleZ > 3)
+        return FaceDirections.topright;
+      else if (angleY > -15 && angleZ < 3)
+        return FaceDirections.bottomright;
+      else if (angleY < 15 && angleZ > 3)
+        return FaceDirections.bottomleft;
+      else
+        return FaceDirections.nan;
+    }
   }
 
   Uint8List concatenatePlanes(List<Plane> planes) {
@@ -28,7 +42,8 @@ mixin CameraUtil {
     return allBytes.done().buffer.asUint8List();
   }
 
-  FirebaseVisionImageMetadata buildMetaData(CameraImage image, CameraDescription cam) {
+  FirebaseVisionImageMetadata buildMetaData(
+      CameraImage image, CameraDescription cam) {
     return FirebaseVisionImageMetadata(
       rawFormat: image.format.raw,
       size: Size(image.width.toDouble(), image.height.toDouble()),

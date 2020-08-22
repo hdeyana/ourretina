@@ -2,6 +2,7 @@ import 'package:app/module/minus/result/controller/resultcontroller.dart';
 import 'package:app/module/minus/result/widget/cardresult.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class MinusResultScreen extends StatelessWidget {
   final args = Get.arguments;
@@ -18,17 +19,17 @@ class MinusResultScreen extends StatelessWidget {
           body: ListView(
             padding: EdgeInsets.symmetric(horizontal: 24),
             children: [
-              Text(
-                'Anda Sehat',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline2,
-              ),
-              SizedBox(height: 24),
-              Text(
-                'Kemungkinan mata sebelah kanan kamu bermasalah, kunjungi dokter mata terdekatmu',
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 24),
+              // Text(
+              //   'Anda Sehat',
+              //   textAlign: TextAlign.center,
+              //   style: Theme.of(context).textTheme.headline2,
+              // ),
+              // SizedBox(height: 24),
+              // Text(
+              //   'Kemungkinan mata sebelah kanan kamu bermasalah, kunjungi dokter mata terdekatmu',
+              //   textAlign: TextAlign.center,
+              // ),
+              SizedBox(height: 48),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Row(
@@ -36,14 +37,14 @@ class MinusResultScreen extends StatelessWidget {
                     Expanded(
                         child: CardResult(
                       isKiri: true,
-                      result: controller.leftScore,
+                      result: controller.result.leftScore,
                       total: 4,
                     )),
                     SizedBox(width: 24),
                     Expanded(
                         child: CardResult(
                       isKiri: false,
-                      result: controller.rightScore,
+                      result: controller.result.rightScore,
                       total: 4,
                     )),
                   ],
@@ -51,20 +52,23 @@ class MinusResultScreen extends StatelessWidget {
               ),
               SizedBox(height: 16),
               Text(
-                '18 July 2020',
+                DateFormat.yMMMEd().format(DateTime.parse(controller.result.testAt)),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 24),
-              Center(
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Theme.of(context).dividerColor),
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-                  child: Text(
-                    'Beranda',
-                    style: Theme.of(context).textTheme.button.copyWith(color: Theme.of(context).accentColor),
+              GestureDetector(
+                onTap: () => controller.goHome(),
+                child: Center(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Theme.of(context).dividerColor),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    child: Text(
+                      'Kembali',
+                      style: Theme.of(context).textTheme.button.copyWith(color: Theme.of(context).accentColor),
+                    ),
                   ),
                 ),
               ),

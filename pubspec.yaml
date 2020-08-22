@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   dio: ^3.0.10
   get: ^3.4.3
@@ -24,6 +26,8 @@ dependencies:
   carousel_slider: ^2.2.1
   permission_handler: ^5.0.1+1
   flutter_svg: ^0.18.0
+  wakelock: ^0.1.4+2
+  intl: ^0.16.1
 
 dev_dependencies:
   flutter_test:
@@ -41,3 +45,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+flutter_intl:
+  enabled: true

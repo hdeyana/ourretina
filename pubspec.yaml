@@ -24,6 +24,7 @@ dependencies:
   carousel_slider: ^2.2.1
   permission_handler: ^5.0.1+1
   flutter_svg: ^0.18.0
+  wakelock: ^0.1.4+2
 
 dev_dependencies:
   flutter_test:

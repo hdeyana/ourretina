@@ -44,4 +44,24 @@ extension GetFace on int {
         return FaceDirections.nan;
     }
   }
+
+  String getFaceName() {
+    switch (this) {
+      case 0:
+        return "ATAS";
+        break;
+      case 1:
+        return "KANAN";
+        break;
+      case 2:
+        return "KIRI";
+        break;
+      case 3:
+        return "BAWAH";
+        break;
+
+      default:
+        return "";
+    }
+  }
 }

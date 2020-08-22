@@ -74,7 +74,7 @@ class _MinusIntroScreenState extends State<MinusIntroScreen> {
                 Spacer(),
                 RaisedButton(
                   onPressed: () => controller.nextSlide(),
-                  child: Text(controller.currentSlide < 3 ? 'Lanjut' : 'Mulai Test'),
+                  child: Text(controller.currentSlide < 3 ? 'Lanjut' : 'Coba'),
                   elevation: 0,
                 ),
                 if (controller.currentSlide != 4 && gc.isTrained)

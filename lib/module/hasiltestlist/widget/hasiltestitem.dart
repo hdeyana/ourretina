@@ -1,6 +1,9 @@
+import 'package:app/module/minus/result/data/model/resultitemmodel.dart';
 import 'package:flutter/material.dart';
 
 class HasiTestItem extends StatelessWidget {
+  final ResultItemModel result;
+  HasiTestItem(this.result);
   @override
   Widget build(BuildContext context) {
     return Container(

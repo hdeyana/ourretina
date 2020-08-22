@@ -25,6 +25,7 @@ dependencies:
   permission_handler: ^5.0.1+1
   flutter_svg: ^0.18.0
   wakelock: ^0.1.4+2
+  intl: ^0.16.1
 
 dev_dependencies:
   flutter_test:

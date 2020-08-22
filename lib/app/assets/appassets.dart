@@ -9,4 +9,6 @@ class AppAssets {
   static const heakKiri = 'assets/Head Gesture Kiri.svg';
   static const headNetral = 'assets/Head Gesture Netral.svg';
   static const headJarak = 'assets/Illustrasi Jarak_2.svg';
+  static const headTutupMata = 'assets/Tutup Mata.svg';
+  static const headTutupMataKanan = 'assets/Tutup Mata Kanan.svg';
 }

@@ -14,7 +14,7 @@ class HeadDirection extends StatefulWidget {
 }
 
 class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
-  final duration = 3.0;
+  final duration = 2.5;
   Animation<double> durationTween;
 
   MinusTestController _minusTestController = Get.find();
@@ -40,7 +40,7 @@ class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
 
     controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        _testController.nextTest(_minusTestController.facedirection.value.index);
+        _testController.nextTest();
       }
     });
   }

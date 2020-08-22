@@ -10,13 +10,13 @@ import 'package:get/get.dart';
 import 'package:supercharged/supercharged.dart';
 
 class TestController extends BaseController {
-  final fontSizes = [150, 75, 25, 10];
+  final fontSizes = [100, 50, 25, 10];
   final rand = math.Random();
-  final PageController pageController = PageController();
   final MinusTestController _minusTestController = Get.find();
 
   List<MinusTestModel> tests = [];
   List<Widget> widgets = [];
+  int currentIndex = 0;
   int currentTest = 0;
 
   @override
@@ -32,22 +32,24 @@ class TestController extends BaseController {
   }
 
   nextAnswer() {
-    currentTest++;
+    currentIndex++;
     update();
-    pageController.nextPage(duration: 200.milliseconds, curve: Curves.linear);
   }
 
-  nextTest(int answer) {
+  nextTest() {
     _minusTestController.addAnswer(
       tests[currentTest].copyWith(
         answeredAt: DateTime.now(),
-        answer: answer,
+        answer: _minusTestController.facedirection.value.index,
       ),
     );
-    if (currentTest != 4)
-      pageController.nextPage(duration: 1.seconds, curve: Curves.linear);
-    else
+    if (currentIndex < 7) {
+      currentIndex++;
+      currentTest++;
+      update();
+    } else {
       _minusTestController.nextStep();
+    }
   }
 
   @override

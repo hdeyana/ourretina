@@ -8,14 +8,7 @@ class MinusTestWidget extends StatelessWidget {
     return GetBuilder<TestController>(
       init: TestController(),
       builder: (controller) {
-        return PageView.builder(
-          controller: controller.pageController,
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: controller.widgets.length,
-          itemBuilder: (context, i) {
-            return controller.widgets[i];
-          },
-        );
+        return controller.widgets[controller.currentIndex];
       },
     );
   }

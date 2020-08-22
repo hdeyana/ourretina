@@ -27,8 +27,12 @@ class MinusTestController extends BaseController with CameraUtil {
   ];
 
   nextStep() {
-    currentStep++;
-    update();
+    if (currentStep < 3) {
+      currentStep++;
+      update();
+    } else {
+      Get.offNamed(AppRoute.minusResultPage, arguments: answer);
+    }
   }
 
   addAnswer(MinusTestModel test) {

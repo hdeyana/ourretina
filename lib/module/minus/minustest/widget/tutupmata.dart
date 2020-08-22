@@ -1,5 +1,7 @@
+import 'package:app/app/assets/appassets.dart';
 import 'package:app/module/minus/minustest/controller/minustestcontroller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:simple_animations/simple_animations.dart';
@@ -23,18 +25,9 @@ class _TutupMataState extends State<TutupMata> with AnimationMixin {
   @override
   void initState() {
     super.initState();
-    _minusTestController.initializeCamera();
 
     durationTween = duration.tweenTo(0.0).animatedBy(controller);
     controller.play(duration: duration.seconds);
-
-    _minusTestController.warningText.listen((v) {
-      if (v.isEmpty) {
-        controller.play();
-      } else {
-        controller.stop();
-      }
-    });
 
     controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
@@ -50,6 +43,7 @@ class _TutupMataState extends State<TutupMata> with AnimationMixin {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          SvgPicture.asset(widget.isLeft ? AppAssets.headTutupMata : AppAssets.headTutupMataKanan),
           Text(
             "Tutup \nMata ${widget.isLeft ? 'Kiri' : 'Kanan'}",
             style: Theme.of(context).textTheme.headline1,

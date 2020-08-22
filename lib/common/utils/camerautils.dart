@@ -22,13 +22,13 @@ mixin CameraUtil {
         return FaceDirections.nan;
     } else {
       if ((angleY < 15) && angleZ < -3)
-        return FaceDirections.topright;
-      else if (angleY > -15 && angleZ > 3)
         return FaceDirections.topleft;
+      else if (angleY > -15 && angleZ > 3)
+        return FaceDirections.topright;
       else if (angleY > -15 && angleZ < 3)
-        return FaceDirections.bottomleft;
-      else if (angleY < 15 && angleZ > 3)
         return FaceDirections.bottomright;
+      else if (angleY < 15 && angleZ > 3)
+        return FaceDirections.bottomleft;
       else
         return FaceDirections.nan;
     }
@@ -42,7 +42,8 @@ mixin CameraUtil {
     return allBytes.done().buffer.asUint8List();
   }
 
-  FirebaseVisionImageMetadata buildMetaData(CameraImage image, CameraDescription cam) {
+  FirebaseVisionImageMetadata buildMetaData(
+      CameraImage image, CameraDescription cam) {
     return FirebaseVisionImageMetadata(
       rawFormat: image.format.raw,
       size: Size(image.width.toDouble(), image.height.toDouble()),

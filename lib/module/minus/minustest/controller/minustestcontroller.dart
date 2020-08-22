@@ -120,6 +120,14 @@ class MinusTestController extends BaseController with CameraUtil {
           if (faces.isNotEmpty) {
             warningText.value = "";
             faceRect = faces[0].boundingBox;
+            if (faceRect.size.width > 300) {
+              warningText.value = "Terlalu Dekat";
+            }
+
+            if (faceRect.size.width < 50) {
+              warningText.value = "Terlalu Jauh";
+            }
+
             final dirc = defineHeadDirection(faces[0].headEulerAngleY, faces[0].headEulerAngleZ);
             facedirection.value = dirc;
 

@@ -9,7 +9,7 @@ mixin ResultPref {
     List<ResultItemModel> a = await loadResult();
     a.add(value);
     final v = json.encode(a);
-    _pref.setString("results", v);
+    await _pref.setString("results", v);
   }
 
   Future<List<ResultItemModel>> loadResult() async {
@@ -17,7 +17,7 @@ mixin ResultPref {
     final jsonRaw = _pref.getString('results');
     try {
       final jsonV = json.decode(jsonRaw);
-      return List<ResultItemModel>.from(jsonV.map((e) => ResultItemModel.fromMap(e)));
+      return List<ResultItemModel>.from(jsonV.map((e) => ResultItemModel.fromJson(e)));
     } catch (e) {
       return [];
     }

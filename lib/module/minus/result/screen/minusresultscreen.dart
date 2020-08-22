@@ -66,7 +66,7 @@ class MinusResultScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(18),
                     ),
                     child: Text(
-                      'Beranda',
+                      'Kembali',
                       style: Theme.of(context).textTheme.button.copyWith(color: Theme.of(context).accentColor),
                     ),
                   ),

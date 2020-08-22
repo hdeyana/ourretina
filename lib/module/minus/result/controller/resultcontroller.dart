@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 class ResultController extends BaseController with ResultPref {
   ResultItemModel result;
-  List<MinusTestModel> results = [];
+  List<MinusTestModel> results;
   List<MinusTestModel> left = [];
   List<MinusTestModel> right = [];
   int _leftScore = 4;

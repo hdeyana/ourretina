@@ -1,4 +1,5 @@
 import 'package:app/app/route/approute.dart';
+import 'package:app/generated/l10n.dart';
 import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -26,7 +27,7 @@ class HomeBottom extends StatelessWidget {
             Container(
                 width: 200,
                 child: Text(
-                  'Tes singkat kesehatan mata anda dimana saja',
+                  S.of(context).tesSingkatKesehatanMataAndaDimanaSaja,
                   textAlign: TextAlign.center,
                 )),
             Spacer(),

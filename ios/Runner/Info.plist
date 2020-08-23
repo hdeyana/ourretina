@@ -40,6 +40,6 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSCameraUsageDescription</key>
-	<string>This app need your camera to detecting your face especially your ayes.</string>
+	<string>This app need your camera to detecting your face especially your eyes.</string>
 </dict>
 </plist>

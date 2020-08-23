@@ -1,5 +1,6 @@
 import 'package:app/app/controller/basecontroller.dart';
 import 'package:app/app/route/approute.dart';
+import 'package:app/generated/l10n.dart';
 import 'package:app/module/minus/intro/widget/arahkankepala.dart';
 import 'package:app/module/minus/intro/widget/rotatingletter.dart';
 import 'package:app/module/minus/intro/widget/simpanperangkat.dart';
@@ -22,10 +23,10 @@ class MinusIntroController extends BaseController {
   ];
 
   final titleAndDesc = [
-    {'title': 'Test Ketajaman Mata', 'desc': 'Test ini bertujuan untuk menguji ketajaman mata anda'},
-    {'title': 'Test Jarak Jauh', 'desc': 'Posisikan tubuh anda dari perangkat pada jarak 50cm sampai 100cm'},
-    {'title': 'Perhatikan Orientasi Simbol', 'desc': 'Anda diminta untuk menebak orientasi simbol yang muncul selama 7 detik'},
-    {'title': 'Arahkan Kepala', 'desc': 'Jawab dengan menggerakkan kepala menuju pojok layar sesuai dengan susunan tombol hingga timer pada tombol selesai'},
+    {'title': S.of(Get.context).testKetajamanMata, 'desc': S.of(Get.context).testIniBertujuanUntukMengujiKetajamanMataAnda},
+    {'title': S.of(Get.context).testJarakJauh, 'desc': S.of(Get.context).posisikanTubuhAndaDariPerangkatPadaJarak50cmSampai100cm},
+    {'title': S.of(Get.context).perhatikanOrientasiSimbol, 'desc': S.of(Get.context).andaDimintaUntukMenebakOrientasiSimbolYangMunculSelama7},
+    {'title': S.of(Get.context).arahkanKepala, 'desc': S.of(Get.context).jawabDenganMenggerakkanKepalaMenujuPojokLayarSesuaiDenganSusunan},
   ];
 
   nextSlide() async {

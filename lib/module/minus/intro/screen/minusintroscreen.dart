@@ -1,3 +1,4 @@
+import 'package:app/generated/l10n.dart';
 import 'package:app/module/analytic/events.dart';
 import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:app/module/minus/intro/controller/minusintrocontroller.dart';
@@ -26,7 +27,7 @@ class _MinusIntroScreenState extends State<MinusIntroScreen> {
       builder: (controller) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('Instruksi Tes'),
+            title: Text(S.of(context).instruksiTes),
             centerTitle: true,
           ),
           body: Container(
@@ -65,6 +66,7 @@ class _MinusIntroScreenState extends State<MinusIntroScreen> {
                 Text(
                   controller.titleAndDesc[controller.currentSlide]['title'],
                   style: Theme.of(context).textTheme.headline3,
+                  textAlign: TextAlign.center,
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(24, 8, 24, 0),
@@ -76,7 +78,7 @@ class _MinusIntroScreenState extends State<MinusIntroScreen> {
                 Spacer(),
                 RaisedButton(
                   onPressed: () => controller.nextSlide(),
-                  child: Text(controller.currentSlide < 3 ? 'Lanjut' : 'Coba'),
+                  child: Text(controller.currentSlide < 3 ? S.of(context).lanjut : S.of(context).coba),
                   elevation: 0,
                 ),
                 if (controller.currentSlide != 4 && gc.isTrained)
@@ -85,7 +87,7 @@ class _MinusIntroScreenState extends State<MinusIntroScreen> {
                       _events.recordSkip();
                       controller.gotoMinusTest();
                     },
-                    child: Text('Lewati'),
+                    child: Text(S.of(context).lewati),
                     textColor: Theme.of(context).accentColor,
                   ),
                 SizedBox(height: 24),

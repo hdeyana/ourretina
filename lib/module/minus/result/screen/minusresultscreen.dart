@@ -1,3 +1,4 @@
+import 'package:app/generated/l10n.dart';
 import 'package:app/module/minus/result/controller/resultcontroller.dart';
 import 'package:app/module/minus/result/widget/cardresult.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class MinusResultScreen extends StatelessWidget {
       builder: (controller) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('Hasil Test'),
+            title: Text(S.of(context).hasilTest),
             centerTitle: true,
           ),
           body: ListView(
@@ -66,7 +67,7 @@ class MinusResultScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(18),
                     ),
                     child: Text(
-                      'Kembali',
+                      S.of(context).kembali,
                       style: Theme.of(context).textTheme.button.copyWith(color: Theme.of(context).accentColor),
                     ),
                   ),
@@ -74,14 +75,14 @@ class MinusResultScreen extends StatelessWidget {
               ),
               SizedBox(height: 36),
               Text(
-                'Disclaimer',
+                S.of(context).disclaimer,
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 8),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 60),
                 child: Text(
-                  'Hasil tes tidak dapat menggantikan saran dari dokter',
+                  S.of(context).hasilTesTidakDapatMenggantikanSaranDariDokter,
                   textAlign: TextAlign.center,
                 ),
               ),

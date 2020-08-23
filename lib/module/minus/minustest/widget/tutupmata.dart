@@ -1,4 +1,5 @@
 import 'package:app/app/assets/appassets.dart';
+import 'package:app/generated/l10n.dart';
 import 'package:app/module/minus/minustest/controller/minustestcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -45,16 +46,16 @@ class _TutupMataState extends State<TutupMata> with AnimationMixin {
 
   @override
   Widget build(BuildContext context) {
+    String introStr = S.of(context).tutupNmata;
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          SvgPicture.asset(widget.isLeft
-              ? AppAssets.headTutupMata
-              : AppAssets.headTutupMataKanan),
+          SvgPicture.asset(widget.isLeft ? AppAssets.headTutupMata : AppAssets.headTutupMataKanan),
           Text(
-            "Tutup \nMata ${widget.isLeft ? 'Kiri' : 'Kanan'}",
+            "${introStr} ${widget.isLeft ? S.of(context).kiriMata : S.of(context).kananMata}",
             style: Theme.of(context).textTheme.headline1,
             textAlign: TextAlign.center,
           ),

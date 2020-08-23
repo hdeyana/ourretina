@@ -1,5 +1,6 @@
 import 'package:app/app/assets/appassets.dart';
 import 'package:app/app/style/color.dart';
+import 'package:app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -47,8 +48,8 @@ class RotatingLetter extends StatelessWidget {
                 SizedBox(height: 16),
                 Text(
                   value.get(DefaultAnimationProperties.rotation) == 0.0
-                      ? 'KANAN'
-                      : value.get(DefaultAnimationProperties.rotation) == 0.5 ? 'BAWAH' : value.get(DefaultAnimationProperties.rotation) == 1.0 ? 'KIRI' : '',
+                      ? S.of(context).kanan
+                      : value.get(DefaultAnimationProperties.rotation) == 0.5 ? S.of(context).bawah : value.get(DefaultAnimationProperties.rotation) == 1.0 ? 'KIRI' : '',
                   style: TextStyle(color: OurRetinaColors.mainGreenDark, wordSpacing: 1.5, letterSpacing: 2),
                 )
               ],

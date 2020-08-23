@@ -87,7 +87,8 @@ class MinusTestController extends BaseController with CameraUtil {
       final c = cameras[1] != null ? cameras[1] : null;
       onNewCameraSelected(c);
     } else {
-      Get.toNamed(AppRoute.cameraPermision);
+      await Get.toNamed(AppRoute.cameraPermision);
+      initializeCamera();
     }
   }
 

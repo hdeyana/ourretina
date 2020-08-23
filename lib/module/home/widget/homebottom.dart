@@ -1,11 +1,14 @@
 import 'package:app/app/route/approute.dart';
 import 'package:app/generated/l10n.dart';
+import 'package:app/module/analytic/events.dart';
 import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeBottom extends StatelessWidget {
   final GlobalController gc = Get.find();
+  final OurRetinaEvents _events = Get.find();
+
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -44,6 +47,7 @@ class HomeBottom extends StatelessWidget {
               width: 150,
               child: OutlineButton(
                 onPressed: () {
+                  _events.recordLastResultCLicked();
                   Get.toNamed(AppRoute.minusResultHistoryPage);
                 },
                 child: Text(

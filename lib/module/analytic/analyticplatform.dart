@@ -11,9 +11,9 @@ mixin AnalyticPlatform {
   }
 
   Future<void> sendFirestore({String collection, Map value}) async {
-    // if (kReleaseMode) {
-    final FirebaseFirestore firestore = FirebaseFirestore.instance;
-    await firestore.collection(collection).add(value);
-    // }
+    if (kReleaseMode) {
+      final FirebaseFirestore firestore = FirebaseFirestore.instance;
+      await firestore.collection(collection).add(value);
+    }
   }
 }

@@ -2,17 +2,18 @@
 
 ![Alt text](/screenshoot/ss_main.png?raw=true "Image Main")
 
-A new Flutter project.
+Rapid test your eye with OurRetina.
 
-## Getting Started
+OurRetina is app for testing your eyes with machine learning. You can test sharpness of your eye from distance, Like test with doctor. Simply put your smartphone, make a distance, answer the direction of given symbol.
 
-This project is a starting point for a Flutter application.
+## Feature
 
-A few resources to get you started if this is your first Flutter project:
+- Test from distance with Machine Learning 📲.
+- Face and distance validator with Machine Learning 📏.
+- Head getsture detection with Machine Learning 🤓.
+- Save test data locally 💾.
+- Sleek Animation ❤️.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Build
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+If you want to rebuild this app, download Google service config from firebase. And build.

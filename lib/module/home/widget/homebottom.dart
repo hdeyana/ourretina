@@ -40,7 +40,7 @@ class HomeBottom extends StatelessWidget {
                 onPressed: () {
                   Get.toNamed(AppRoute.minusIntroPage);
                 },
-                child: Text('Mulai'),
+                child: Text(S.of(context).mulai),
               ),
             ),
             Container(
@@ -51,7 +51,7 @@ class HomeBottom extends StatelessWidget {
                   Get.toNamed(AppRoute.minusResultHistoryPage);
                 },
                 child: Text(
-                  'Hasil',
+                  S.of(context).hasil,
                   style: Theme.of(context).textTheme.button.copyWith(color: Theme.of(context).accentColor),
                 ),
               ),

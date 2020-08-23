@@ -1,4 +1,5 @@
 import 'package:app/common/utils/resultutils.dart';
+import 'package:app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class CardResult extends StatelessWidget {
@@ -17,7 +18,7 @@ class CardResult extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Text(
-            '${isKiri ? "Kiri" : "Kanan"}',
+            '${isKiri ? S.of(context).kiriResult : S.of(context).kananResult}',
             style: TextStyle(color: Colors.white, fontSize: 24),
           ),
           Container(

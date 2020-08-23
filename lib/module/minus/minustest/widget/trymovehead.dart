@@ -1,5 +1,6 @@
 import 'package:app/common/model/facedirectios.dart';
 import 'package:app/common/widget/arrowdirection.dart';
+import 'package:app/generated/l10n.dart';
 import 'package:app/module/analytic/events.dart';
 import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:app/module/minus/minustest/controller/minustestcontroller.dart';
@@ -54,7 +55,7 @@ class _TryMoveHeadState extends State<TryMoveHead> with AnimationMixin {
             Padding(
               padding: const EdgeInsets.all(36),
               child: Text(
-                'Coba Gerakan Kepala Anda',
+                S.of(context).cobaGerakanKepalaAnda,
                 style: Theme.of(context).textTheme.headline2,
                 textAlign: TextAlign.center,
               ),
@@ -134,7 +135,7 @@ class _TryMoveHeadState extends State<TryMoveHead> with AnimationMixin {
             SizedBox(height: 36),
             if (_gc.isTrained || turnedOn)
               RaisedButton(
-                child: Text('Mulai Test'),
+                child: Text(S.of(context).mulaiTest),
                 onPressed: () {
                   final pressedAt = DateTime.now();
                   final diff = pressedAt.difference(initAt).inSeconds;

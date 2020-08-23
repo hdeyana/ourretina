@@ -4,6 +4,7 @@ import 'package:app/app/controller/basecontroller.dart';
 import 'package:app/app/route/approute.dart';
 import 'package:app/common/model/facedirectios.dart';
 import 'package:app/common/utils/camerautils.dart';
+import 'package:app/generated/l10n.dart';
 import 'package:app/module/minus/minustest/data/model/minustestmodel.dart';
 import 'package:app/module/minus/minustest/widget/minustestwidget.dart';
 import 'package:app/module/minus/minustest/widget/simpanteleponjauh.dart';
@@ -126,11 +127,11 @@ class MinusTestController extends BaseController with CameraUtil {
             warningText.value = "";
             faceRect = faces[0].boundingBox;
             if (faceRect.size.width > 300) {
-              warningText.value = "Terlalu Dekat";
+              warningText.value = S.of(Get.context).terlaluDekat;
             }
 
             if (faceRect.size.width < 50) {
-              warningText.value = "Terlalu Jauh";
+              warningText.value = S.of(Get.context).terlaluJauh;
             }
 
             final dirc = defineHeadDirection(faces[0].headEulerAngleY, faces[0].headEulerAngleZ);
@@ -138,7 +139,7 @@ class MinusTestController extends BaseController with CameraUtil {
 
             if (_mounted) update();
           } else {
-            warningText.value = "Tidak dapat menemukan Wajah";
+            warningText.value = S.of(Get.context).tidakDapatMenemukanWajah;
           }
         }
       });

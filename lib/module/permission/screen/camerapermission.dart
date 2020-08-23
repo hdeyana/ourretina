@@ -1,3 +1,4 @@
+import 'package:app/generated/l10n.dart';
 import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,45 +17,45 @@ class CameraPermissionScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Izinkan Kamera'),
+          title: Text(S.of(context).izinkanKamera),
         ),
         body: ListView(
           padding: EdgeInsets.symmetric(horizontal: 24),
           children: [
             Text(
-              'Applikasi ini bergantung dengan kamera untuk:',
+              S.of(context).applikasiIniBergantungDenganKameraUntuk,
               style: Theme.of(context).textTheme.headline6,
             ),
             SizedBox(height: 24),
             ListTile(
               leading: Icon(Icons.face),
-              title: Text('Mendeteksi wajah anda.'),
+              title: Text(S.of(context).mendeteksiWajahAnda),
               contentPadding: EdgeInsets.all(0),
             ),
             ListTile(
               leading: Icon(Icons.exposure),
-              title: Text('Menghitung estimasi jarak antara smartphone dengan anda.'),
+              title: Text(S.of(context).menghitungEstimasiJarakAntaraSmartphoneDenganAnda),
               contentPadding: EdgeInsets.all(0),
             ),
             ListTile(
               leading: Icon(Icons.tag_faces),
-              title: Text('Membaca gerakan gesture kepala anda.'),
+              title: Text(S.of(context).membacaGerakanGestureKepalaAnda),
               contentPadding: EdgeInsets.all(0),
             ),
             SizedBox(height: 24),
             Text(
-              'Privasi berkaitan dengan kamera:',
+              S.of(context).privasiBerkaitanDenganKamera,
               style: Theme.of(context).textTheme.headline6,
             ),
             SizedBox(height: 24),
             ListTile(
               leading: Icon(Icons.security),
-              title: Text('Aplikasi ini tidak menyimpan wajah diluar dari perangkat anda.'),
+              title: Text(S.of(context).aplikasiIniTidakMenyimpanWajahDiluarDariPerangkatAnda),
               contentPadding: EdgeInsets.all(0),
             ),
             ListTile(
               leading: Icon(Icons.signal_wifi_off),
-              title: Text('Aplikasi ini tidak mengirim wajah anda ke server manapun.'),
+              title: Text(S.of(context).aplikasiIniTidakMengirimWajahAndaKeServerManapun),
               contentPadding: EdgeInsets.all(0),
             ),
             SizedBox(height: 24),
@@ -64,7 +65,7 @@ class CameraPermissionScreen extends StatelessWidget {
 
                 if (status == PermissionStatus.granted) Get.back();
               },
-              child: Text('Berikan Permisi'),
+              child: Text(S.of(context).berikanPermisi),
             )
           ],
         ),

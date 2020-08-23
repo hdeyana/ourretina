@@ -202,6 +202,286 @@ class S {
       args: [],
     );
   }
+
+  /// `Too close`
+  String get terlaluDekat {
+    return Intl.message(
+      'Too close',
+      name: 'terlaluDekat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Too far`
+  String get terlaluJauh {
+    return Intl.message(
+      'Too far',
+      name: 'terlaluJauh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Can't find your face`
+  String get tidakDapatMenemukanWajah {
+    return Intl.message(
+      'Can\'t find your face',
+      name: 'tidakDapatMenemukanWajah',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Where was the previous letter orientation?`
+  String get kemanaOrientasiHurufSebelumnya {
+    return Intl.message(
+      'Where was the previous letter orientation?',
+      name: 'kemanaOrientasiHurufSebelumnya',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Place your smartphone and`
+  String get simpanSmartphoneAndaDan {
+    return Intl.message(
+      'Place your smartphone and',
+      name: 'simpanSmartphoneAndaDan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `make a distance`
+  String get menjauh {
+    return Intl.message(
+      'make a distance',
+      name: 'menjauh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The test will start in`
+  String get testAkanDimulaiDalam {
+    return Intl.message(
+      'The test will start in',
+      name: 'testAkanDimulaiDalam',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pay attention the orientation of the symbols below`
+  String get perhatikanOrientasiSimbolDiBawahIni {
+    return Intl.message(
+      'Pay attention the orientation of the symbols below',
+      name: 'perhatikanOrientasiSimbolDiBawahIni',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try moving your head`
+  String get cobaGerakanKepalaAnda {
+    return Intl.message(
+      'Try moving your head',
+      name: 'cobaGerakanKepalaAnda',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start the Test`
+  String get mulaiTest {
+    return Intl.message(
+      'Start the Test',
+      name: 'mulaiTest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close \nthe`
+  String get tutupNmata {
+    return Intl.message(
+      'Close \nthe',
+      name: 'tutupNmata',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `left eye`
+  String get kiriMata {
+    return Intl.message(
+      'left eye',
+      name: 'kiriMata',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `right eye`
+  String get kananMata {
+    return Intl.message(
+      'right eye',
+      name: 'kananMata',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Test Result`
+  String get hasilTest {
+    return Intl.message(
+      'Test Result',
+      name: 'hasilTest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back`
+  String get kembali {
+    return Intl.message(
+      'Back',
+      name: 'kembali',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Disclaimer`
+  String get disclaimer {
+    return Intl.message(
+      'Disclaimer',
+      name: 'disclaimer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The results can't replace the doctor's advice and prescription`
+  String get hasilTesTidakDapatMenggantikanSaranDariDokter {
+    return Intl.message(
+      'The results can\'t replace the doctor\'s advice and prescription',
+      name: 'hasilTesTidakDapatMenggantikanSaranDariDokter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Left`
+  String get kiriResult {
+    return Intl.message(
+      'Left',
+      name: 'kiriResult',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Right`
+  String get kananResult {
+    return Intl.message(
+      'Right',
+      name: 'kananResult',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Camera Permission`
+  String get izinkanKamera {
+    return Intl.message(
+      'Camera Permission',
+      name: 'izinkanKamera',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This application is need the camera to:`
+  String get applikasiIniBergantungDenganKameraUntuk {
+    return Intl.message(
+      'This application is need the camera to:',
+      name: 'applikasiIniBergantungDenganKameraUntuk',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Detect your face.`
+  String get mendeteksiWajahAnda {
+    return Intl.message(
+      'Detect your face.',
+      name: 'mendeteksiWajahAnda',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Calculate the estimated distance between your smartphone and you.`
+  String get menghitungEstimasiJarakAntaraSmartphoneDenganAnda {
+    return Intl.message(
+      'Calculate the estimated distance between your smartphone and you.',
+      name: 'menghitungEstimasiJarakAntaraSmartphoneDenganAnda',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pay attention to gestures of your head.`
+  String get membacaGerakanGestureKepalaAnda {
+    return Intl.message(
+      'Pay attention to gestures of your head.',
+      name: 'membacaGerakanGestureKepalaAnda',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy that regards to cameras:`
+  String get privasiBerkaitanDenganKamera {
+    return Intl.message(
+      'Privacy that regards to cameras:',
+      name: 'privasiBerkaitanDenganKamera',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This application does not save faces outside of your device.`
+  String get aplikasiIniTidakMenyimpanWajahDiluarDariPerangkatAnda {
+    return Intl.message(
+      'This application does not save faces outside of your device.',
+      name: 'aplikasiIniTidakMenyimpanWajahDiluarDariPerangkatAnda',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This application does not send your face to any server.`
+  String get aplikasiIniTidakMengirimWajahAndaKeServerManapun {
+    return Intl.message(
+      'This application does not send your face to any server.',
+      name: 'aplikasiIniTidakMengirimWajahAndaKeServerManapun',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allow Permission`
+  String get berikanPermisi {
+    return Intl.message(
+      'Allow Permission',
+      name: 'berikanPermisi',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

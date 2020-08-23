@@ -1,5 +1,6 @@
 import 'package:app/app/assets/appassets.dart';
 import 'package:app/app/route/approute.dart';
+import 'package:app/generated/l10n.dart';
 import 'package:app/module/minus/minustest/controller/minustestcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -68,20 +69,20 @@ class _SimpantTeleponJauhState extends State<SimpantTeleponJauh> with AnimationM
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              "Simpan Smartphone anda dan",
+              S.of(context).simpanSmartphoneAndaDan,
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 16),
             SvgPicture.asset(AppAssets.headJarak),
             SizedBox(height: 16),
             Text(
-              "Menjauh",
+              S.of(context).menjauh,
               style: Theme.of(context).textTheme.headline1,
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 16),
             Text(
-              "Test Akan dimulai dalam",
+              S.of(context).testAkanDimulaiDalam,
               style: Theme.of(context).textTheme.caption,
               textAlign: TextAlign.center,
             ),

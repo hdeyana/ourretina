@@ -1,5 +1,6 @@
 import 'package:app/common/model/facedirectios.dart';
 import 'package:app/common/widget/arrowdirection.dart';
+import 'package:app/generated/l10n.dart';
 import 'package:app/module/minus/minustest/controller/minustestcontroller.dart';
 import 'package:app/module/minus/minustest/controller/testcontroller.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +54,7 @@ class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Kemana orientasi huruf sebelumnya?',
+              S.of(context).kemanaOrientasiHurufSebelumnya,
               style: Theme.of(context).textTheme.headline4,
               textAlign: TextAlign.center,
             ),

@@ -5,25 +5,64 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTheme {
   static final main = ThemeData(
     primaryColor: OurRetinaColors.mainGreen,
-    canvasColor: Colors.white,
+    accentColor: OurRetinaColors.mainGreenDark,
+    canvasColor: OurRetinaColors.greenCanvas,
+    buttonColor: OurRetinaColors.mainGreenDark,
     appBarTheme: AppBarTheme(
-      color: Colors.white,
+      color: OurRetinaColors.greenCanvas,
       elevation: 0,
       brightness: Brightness.light,
       textTheme: TextTheme(
-        headline6: TextStyle(
+        headline6: GoogleFonts.dmSerifDisplay(
           fontSize: 18,
-          color: OurRetinaColors.mainGreen,
+          color: OurRetinaColors.mainGreenDark,
         ),
       ),
       iconTheme: IconThemeData(
-        color: Colors.red,
+        color: OurRetinaColors.mainGreenDark,
       ),
     ),
-    textTheme: GoogleFonts.balooTammuduTextTheme(),
+    textTheme: GoogleFonts.nunitoSansTextTheme().copyWith(
+      headline1: GoogleFonts.dmSerifDisplay(
+        fontSize: 48,
+        color: OurRetinaColors.mainGreenDark,
+      ),
+      headline2: GoogleFonts.dmSerifDisplay(
+        fontSize: 36,
+        color: OurRetinaColors.mainGreenDark,
+      ),
+      headline3: GoogleFonts.dmSerifDisplay(
+        fontSize: 24,
+        color: OurRetinaColors.mainGreenDark,
+      ),
+      headline4: GoogleFonts.dmSerifDisplay(
+        fontSize: 18,
+        color: OurRetinaColors.mainGreenDark,
+      ),
+      headline5: GoogleFonts.dmSerifDisplay(
+        fontSize: 16,
+        color: OurRetinaColors.mainGreenDark,
+      ),
+      headline6: GoogleFonts.dmSerifDisplay(
+        fontSize: 14,
+        color: OurRetinaColors.mainGreenDark,
+      ),
+      bodyText1: GoogleFonts.nunitoSans(
+        color: OurRetinaColors.mainGreenText,
+      ),
+      bodyText2: GoogleFonts.nunitoSans(
+        color: OurRetinaColors.mainGreenText,
+      ),
+      subtitle1: GoogleFonts.nunitoSans(
+        color: OurRetinaColors.mainGreenText,
+      ),
+    ),
     buttonTheme: ButtonThemeData(
       textTheme: ButtonTextTheme.primary,
-      buttonColor: OurRetinaColors.mainGreen,
+      buttonColor: OurRetinaColors.mainGreenDark,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(100),
+      ),
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,

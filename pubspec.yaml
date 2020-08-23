@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 0.0.1+1
+version: 0.5.0+1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -11,15 +11,27 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   dio: ^3.0.10
   get: ^3.4.3
   shared_preferences: ^0.5.8
   google_fonts: ^1.1.0
   simple_animations: ^2.2.1
-  animated_text_kit: ^2.2.0
-  animated_text: ^1.0.2
   lottie: ^0.5.1
+  firebase_ml_vision: ^0.9.6+2
+  camera: ^0.5.8+5
+  percent_indicator: ^2.1.5
+  carousel_slider: ^2.2.1
+  permission_handler: ^5.0.1+1
+  flutter_svg: ^0.18.0
+  wakelock: ^0.1.4+2
+  intl: ^0.16.1
+  firebase_analytics: ^6.0.0
+  firebase_core: ^0.5.0
+  advertising_id: ^1.0.0
+  cloud_firestore: ^0.14.0+2
 
 dev_dependencies:
   flutter_test:
@@ -37,3 +49,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+flutter_intl:
+  enabled: true

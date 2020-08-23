@@ -1,4 +1,5 @@
 import 'package:app/app/controller/basecontroller.dart';
+import 'package:app/module/analytic/events.dart';
 import 'package:app/module/minus/minustest/data/model/minustestmodel.dart';
 import 'package:app/module/minus/result/data/model/resultitemmodel.dart';
 import 'package:app/module/minus/result/data/sharedpref/resultpref.dart';
@@ -6,11 +7,13 @@ import 'package:get/get.dart';
 
 class ResultController extends BaseController with ResultPref {
   ResultItemModel result;
-  List<MinusTestModel> results = [];
+  List<MinusTestModel> results;
   List<MinusTestModel> left = [];
   List<MinusTestModel> right = [];
   int _leftScore = 4;
   int _rightScore = 4;
+
+  OurRetinaEvents _events = Get.find();
 
   ResultController(res) {
     if (res is List<MinusTestModel>) results = List<MinusTestModel>.from(res);
@@ -40,6 +43,7 @@ class ResultController extends BaseController with ResultPref {
     update();
 
     saveResult(result);
+    _events.recordFinishTest(result);
   }
 
   goHome() {

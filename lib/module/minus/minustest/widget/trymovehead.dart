@@ -1,24 +1,28 @@
 import 'package:app/common/model/facedirectios.dart';
 import 'package:app/common/widget/arrowdirection.dart';
+import 'package:app/module/analytic/events.dart';
+import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:app/module/minus/minustest/controller/minustestcontroller.dart';
-import 'package:app/module/minus/minustest/controller/testcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:simple_animations/simple_animations.dart';
 import 'package:supercharged/supercharged.dart';
 
-class HeadDirection extends StatefulWidget {
+class TryMoveHead extends StatefulWidget {
   @override
-  _HeadDirectionState createState() => _HeadDirectionState();
+  _TryMoveHeadState createState() => _TryMoveHeadState();
 }
 
-class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
+class _TryMoveHeadState extends State<TryMoveHead> with AnimationMixin {
   final duration = 2.5;
   Animation<double> durationTween;
+  bool turnedOn = false;
 
   MinusTestController _minusTestController = Get.find();
-  TestController _testController = Get.find();
+  GlobalController _gc = Get.find();
+  OurRetinaEvents _events = Get.find();
+  DateTime initAt = DateTime.now();
 
   @override
   void initState() {
@@ -26,21 +30,16 @@ class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
 
     durationTween = 0.0.tweenTo(duration).animatedBy(controller);
 
-    _minusTestController.warningText.listen((v) {
-      if (v.isEmpty)
-        controller.play(duration: duration.seconds);
-      else
-        controller.stop();
-    });
-
     _minusTestController.facedirection.listen((FaceDirections v) {
       controller.reset();
       if (v != FaceDirections.nan) controller.play(duration: duration.seconds);
     });
 
     controller.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        _testController.nextTest();
+      if (status == AnimationStatus.completed && mounted) {
+        setState(() {
+          turnedOn = true;
+        });
       }
     });
   }
@@ -52,12 +51,14 @@ class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Kemana orientasi huruf sebelumnya?',
-              style: Theme.of(context).textTheme.headline4,
-              textAlign: TextAlign.center,
+            Padding(
+              padding: const EdgeInsets.all(36),
+              child: Text(
+                'Coba Gerakan Kepala Anda',
+                style: Theme.of(context).textTheme.headline2,
+                textAlign: TextAlign.center,
+              ),
             ),
-            SizedBox(height: 24),
             Container(
               width: double.maxFinite,
               child: Obx(
@@ -74,7 +75,7 @@ class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
                           percent: _minusTestController.facedirection.value == FaceDirections.topleft ? (durationTween.value / duration) : 0.0,
                           progressColor: Theme.of(context).accentColor,
                           center: ArrowDirection(
-                            directions: ArrowDirections.up,
+                            directions: ArrowDirections.down,
                             circleColor: _minusTestController.facedirection.value == FaceDirections.topleft ? Theme.of(context).accentColor : null,
                           ),
                         ),
@@ -86,7 +87,7 @@ class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
                           percent: _minusTestController.facedirection.value == FaceDirections.topright ? (durationTween.value / duration) : 0.0,
                           progressColor: Theme.of(context).accentColor,
                           center: ArrowDirection(
-                            directions: ArrowDirections.right,
+                            directions: ArrowDirections.up,
                             circleColor: _minusTestController.facedirection.value == FaceDirections.topright ? Theme.of(context).accentColor : null,
                           ),
                         ),
@@ -115,7 +116,7 @@ class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
                           percent: _minusTestController.facedirection.value == FaceDirections.bottomright ? (durationTween.value / duration) : 0.0,
                           progressColor: Theme.of(context).accentColor,
                           center: ArrowDirection(
-                            directions: ArrowDirections.down,
+                            directions: ArrowDirections.right,
                             circleColor: _minusTestController.facedirection.value == FaceDirections.bottomright ? Theme.of(context).accentColor : null,
                           ),
                         ),
@@ -131,6 +132,18 @@ class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 36),
+            if (_gc.isTrained || turnedOn)
+              RaisedButton(
+                child: Text('Mulai Test'),
+                onPressed: () {
+                  final pressedAt = DateTime.now();
+                  final diff = pressedAt.difference(initAt).inSeconds;
+
+                  if (diff > 3) _events.recordDurationTrial(diff);
+                  _gc.trainComplete();
+                  _minusTestController.nextStep();
+                },
+              ),
           ],
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:app/module/analytic/events.dart';
 import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:app/module/minus/intro/controller/minusintrocontroller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -11,6 +12,7 @@ class MinusIntroScreen extends StatefulWidget {
 
 class _MinusIntroScreenState extends State<MinusIntroScreen> {
   final GlobalController gc = Get.find();
+  final OurRetinaEvents _events = Get.find();
 
   @override
   void initState() {
@@ -74,12 +76,15 @@ class _MinusIntroScreenState extends State<MinusIntroScreen> {
                 Spacer(),
                 RaisedButton(
                   onPressed: () => controller.nextSlide(),
-                  child: Text(controller.currentSlide < 3 ? 'Lanjut' : 'Mulai Test'),
+                  child: Text(controller.currentSlide < 3 ? 'Lanjut' : 'Coba'),
                   elevation: 0,
                 ),
                 if (controller.currentSlide != 4 && gc.isTrained)
                   FlatButton(
-                    onPressed: () => controller.gotoMinusTest(),
+                    onPressed: () {
+                      _events.recordSkip();
+                      controller.gotoMinusTest();
+                    },
                     child: Text('Lewati'),
                     textColor: Theme.of(context).accentColor,
                   ),

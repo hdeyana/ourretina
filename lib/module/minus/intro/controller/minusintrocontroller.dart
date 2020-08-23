@@ -1,6 +1,5 @@
 import 'package:app/app/controller/basecontroller.dart';
 import 'package:app/app/route/approute.dart';
-import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:app/module/minus/intro/widget/arahkankepala.dart';
 import 'package:app/module/minus/intro/widget/rotatingletter.dart';
 import 'package:app/module/minus/intro/widget/simpanperangkat.dart';
@@ -12,7 +11,6 @@ import 'package:get/get.dart';
 class MinusIntroController extends BaseController {
   int currentSlide = 0;
   CarouselController slideController = CarouselController();
-  final GlobalController gc = Get.find();
 
   static const int lastLength = 3;
 
@@ -33,8 +31,7 @@ class MinusIntroController extends BaseController {
   nextSlide() async {
     switch (currentSlide) {
       case lastLength:
-        gc.trainComplete();
-        Get.offNamed(AppRoute.minusSimpanJauh);
+        Get.offNamed(AppRoute.minusTestPage);
         break;
       default:
         currentSlide++;
@@ -61,5 +58,5 @@ class MinusIntroController extends BaseController {
     }
   }
 
-  gotoMinusTest() => Get.offNamed(AppRoute.minusSimpanJauh);
+  gotoMinusTest() => Get.offNamed(AppRoute.minusTestPage);
 }

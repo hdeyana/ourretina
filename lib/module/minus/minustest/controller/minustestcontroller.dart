@@ -6,6 +6,8 @@ import 'package:app/common/model/facedirectios.dart';
 import 'package:app/common/utils/camerautils.dart';
 import 'package:app/module/minus/minustest/data/model/minustestmodel.dart';
 import 'package:app/module/minus/minustest/widget/minustestwidget.dart';
+import 'package:app/module/minus/minustest/widget/simpanteleponjauh.dart';
+import 'package:app/module/minus/minustest/widget/trymovehead.dart';
 import 'package:app/module/minus/minustest/widget/tutupmata.dart';
 import 'package:camera/camera.dart';
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
@@ -20,6 +22,8 @@ class MinusTestController extends BaseController with CameraUtil {
   List<MinusTestModel> answer = [];
 
   final steps = <Widget>[
+    TryMoveHead(),
+    SimpantTeleponJauh(),
     TutupMata(false),
     MinusTestWidget(),
     TutupMata(true),
@@ -27,7 +31,7 @@ class MinusTestController extends BaseController with CameraUtil {
   ];
 
   nextStep() {
-    if (currentStep < 3) {
+    if (currentStep < steps.length - 1) {
       currentStep++;
       update();
     } else {
@@ -83,7 +87,8 @@ class MinusTestController extends BaseController with CameraUtil {
       final c = cameras[1] != null ? cameras[1] : null;
       onNewCameraSelected(c);
     } else {
-      Get.toNamed(AppRoute.cameraPermision);
+      await Get.toNamed(AppRoute.cameraPermision);
+      initializeCamera();
     }
   }
 
@@ -120,6 +125,14 @@ class MinusTestController extends BaseController with CameraUtil {
           if (faces.isNotEmpty) {
             warningText.value = "";
             faceRect = faces[0].boundingBox;
+            if (faceRect.size.width > 300) {
+              warningText.value = "Terlalu Dekat";
+            }
+
+            if (faceRect.size.width < 50) {
+              warningText.value = "Terlalu Jauh";
+            }
+
             final dirc = defineHeadDirection(faces[0].headEulerAngleY, faces[0].headEulerAngleZ);
             facedirection.value = dirc;
 

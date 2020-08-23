@@ -1,5 +1,6 @@
 import 'package:app/app/assets/appassets.dart';
 import 'package:app/app/route/approute.dart';
+import 'package:app/module/minus/minustest/controller/minustestcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -17,6 +18,7 @@ class SimpantTeleponJauh extends StatefulWidget {
 class _SimpantTeleponJauhState extends State<SimpantTeleponJauh> with AnimationMixin, WidgetsBindingObserver {
   final duration = 7.0;
   Animation<double> durationTween;
+  MinusTestController _minusTestController = Get.find();
 
   @override
   void initState() {
@@ -26,9 +28,16 @@ class _SimpantTeleponJauhState extends State<SimpantTeleponJauh> with AnimationM
     durationTween = duration.tweenTo(0.0).animatedBy(controller);
     controller.play(duration: duration.seconds);
 
+    _minusTestController.warningText.listen((v) {
+      if (v.isEmpty)
+        controller.play(duration: duration.seconds);
+      else
+        controller.stop();
+    });
+
     controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        Get.offNamed(AppRoute.minusTestPage);
+        _minusTestController.nextStep();
       }
     });
   }

@@ -1,3 +1,19 @@
 {
-  "tesSingkatKesehatanMataAndaDimanaSaja": "Rapid Test for your eyes anywhere"
+    "tesSingkatKesehatanMataAndaDimanaSaja": "Rapid test for your eyes anywhere",
+    "mulai": "Start",
+    "hasil": "Result",
+    "instruksiTes": "Test Instructions",
+    "lanjut": "Next",
+    "coba": "Try",
+    "lewati": "Skip",
+    "kanan": "RIGHT",
+    "bawah": "BOTTOM",
+    "testKetajamanMata": "Eye Sharpness Test",
+    "testJarakJauh": "Distance Test",
+    "testIniBertujuanUntukMengujiKetajamanMataAnda": "This test aims to test the sharpness of your eyes",
+    "posisikanTubuhAndaDariPerangkatPadaJarak50cmSampai100cm": "Position your body from the device about 50cm to 100cm",
+    "perhatikanOrientasiSimbol": "Pay attention to the orientation of the symbol",
+    "andaDimintaUntukMenebakOrientasiSimbolYangMunculSelama7": "You're asked to guess the orientation of the symbols that appear for 7 seconds",
+    "arahkanKepala": "Point your head",
+    "jawabDenganMenggerakkanKepalaMenujuPojokLayarSesuaiDenganSusunan": "Answer by moving your head towards the corner of the screen according to the button arrangement until the timer on the button is finished"
 }

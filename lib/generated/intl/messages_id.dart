@@ -21,6 +21,22 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "tesSingkatKesehatanMataAndaDimanaSaja" : MessageLookupByLibrary.simpleMessage("Tes singkat kesehatan mata anda dimana saja")
+    "andaDimintaUntukMenebakOrientasiSimbolYangMunculSelama7" : MessageLookupByLibrary.simpleMessage("Anda diminta untuk menebak orientasi simbol yang muncul selama 7 detik"),
+    "arahkanKepala" : MessageLookupByLibrary.simpleMessage("Arahkan Kepala"),
+    "bawah" : MessageLookupByLibrary.simpleMessage("BAWAH"),
+    "coba" : MessageLookupByLibrary.simpleMessage("Coba"),
+    "hasil" : MessageLookupByLibrary.simpleMessage("Hasil"),
+    "instruksiTes" : MessageLookupByLibrary.simpleMessage("Instruksi Tes"),
+    "jawabDenganMenggerakkanKepalaMenujuPojokLayarSesuaiDenganSusunan" : MessageLookupByLibrary.simpleMessage("Jawab dengan menggerakkan kepala menuju pojok layar sesuai dengan susunan tombol hingga timer pada tombol selesai"),
+    "kanan" : MessageLookupByLibrary.simpleMessage("KANAN"),
+    "lanjut" : MessageLookupByLibrary.simpleMessage("Lanjut"),
+    "lewati" : MessageLookupByLibrary.simpleMessage("Lewati"),
+    "mulai" : MessageLookupByLibrary.simpleMessage("Mulai"),
+    "perhatikanOrientasiSimbol" : MessageLookupByLibrary.simpleMessage("Perhatikan Orientasi Simbol"),
+    "posisikanTubuhAndaDariPerangkatPadaJarak50cmSampai100cm" : MessageLookupByLibrary.simpleMessage("Posisikan tubuh anda dari perangkat pada jarak 50cm sampai 100cm"),
+    "tesSingkatKesehatanMataAndaDimanaSaja" : MessageLookupByLibrary.simpleMessage("Tes singkat kesehatan mata anda dimana saja"),
+    "testIniBertujuanUntukMengujiKetajamanMataAnda" : MessageLookupByLibrary.simpleMessage("Test ini bertujuan untuk menguji ketajaman mata anda"),
+    "testJarakJauh" : MessageLookupByLibrary.simpleMessage("Test Jarak Jauh"),
+    "testKetajamanMata" : MessageLookupByLibrary.simpleMessage("Test Ketajaman Mata")
   };
 }

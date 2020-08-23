@@ -1,5 +1,6 @@
 import 'package:app/common/model/facedirectios.dart';
 import 'package:app/common/widget/arrowdirection.dart';
+import 'package:app/module/analytic/events.dart';
 import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:app/module/minus/minustest/controller/minustestcontroller.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,8 @@ class _TryMoveHeadState extends State<TryMoveHead> with AnimationMixin {
 
   MinusTestController _minusTestController = Get.find();
   GlobalController _gc = Get.find();
+  OurRetinaEvents _events = Get.find();
+  DateTime initAt = DateTime.now();
 
   @override
   void initState() {
@@ -133,6 +136,10 @@ class _TryMoveHeadState extends State<TryMoveHead> with AnimationMixin {
               RaisedButton(
                 child: Text('Mulai Test'),
                 onPressed: () {
+                  final pressedAt = DateTime.now();
+                  final diff = pressedAt.difference(initAt).inSeconds;
+
+                  if (diff > 3) _events.recordDurationTrial(diff);
                   _gc.trainComplete();
                   _minusTestController.nextStep();
                 },

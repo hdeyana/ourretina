@@ -1,6 +1,8 @@
 import 'package:app/app/route/approute.dart';
 import 'package:app/app/route/retinaroute.dart';
 import 'package:app/app/style/theme.dart';
+import 'package:app/generated/l10n.dart';
+import 'package:app/module/analytic/events.dart';
 import 'package:app/module/global/controller/globalcontroller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +10,6 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:wakelock/wakelock.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
-import 'generated/l10n.dart';
 
 void main() async {
   runApp(MyApp());
@@ -29,6 +29,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     Get.put(GlobalController());
+    Get.put(OurRetinaEvents());
   }
 
   @override

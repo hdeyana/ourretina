@@ -1,3 +1,4 @@
+import 'package:advertising_id/advertising_id.dart';
 import 'package:app/module/analytic/analyticplatform.dart';
 import 'package:app/module/minus/result/data/model/resultitemmodel.dart';
 
@@ -16,8 +17,20 @@ class OurRetinaEvents with AnalyticPlatform {
 
   recordFinishTest(ResultItemModel result) async {
     final res = result.toMap();
+    res.addAll({
+      'advID': await _getADVID(),
+      'duration': result.results.last.answeredAt.difference(result.results.first.answeredAt).inSeconds,
+    });
 
     await sendfirebaseAnalytic(event: "minus_result", value: res);
     await sendFirestore(collection: "minus_result", value: res);
+  }
+
+  _getADVID() async {
+    try {
+      return await AdvertisingId.id;
+    } catch (e) {
+      return '';
+    }
   }
 }

@@ -53,10 +53,13 @@ class _HeadDirectionState extends State<HeadDirection> with AnimationMixin {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              S.of(context).kemanaOrientasiHurufSebelumnya,
-              style: Theme.of(context).textTheme.headline4,
-              textAlign: TextAlign.center,
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                S.of(context).kemanaOrientasiHurufSebelumnya,
+                style: Theme.of(context).textTheme.headline4,
+                textAlign: TextAlign.center,
+              ),
             ),
             SizedBox(height: 24),
             Container(

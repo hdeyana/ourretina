@@ -43,5 +43,8 @@
   "privasiBerkaitanDenganKamera": "Privasi berkaitan dengan kamera:",
   "aplikasiIniTidakMenyimpanWajahDiluarDariPerangkatAnda": "Aplikasi ini tidak menyimpan wajah diluar dari perangkat anda.",
   "aplikasiIniTidakMengirimWajahAndaKeServerManapun": "Aplikasi ini tidak mengirim wajah anda ke server manapun.",
-  "berikanPermisi": "Berikan Permisi"
+  "berikanPermisi": "Berikan Permisi",
+  "atas": "ATAS",
+  "kiri": "KIRI",
+  "hasiTestAnda": "Hasi Test Anda"
 }

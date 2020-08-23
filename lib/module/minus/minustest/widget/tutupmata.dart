@@ -55,7 +55,7 @@ class _TutupMataState extends State<TutupMata> with AnimationMixin {
         children: <Widget>[
           SvgPicture.asset(widget.isLeft ? AppAssets.headTutupMata : AppAssets.headTutupMataKanan),
           Text(
-            "${introStr} ${widget.isLeft ? S.of(context).kiriMata : S.of(context).kananMata}",
+            "$introStr ${widget.isLeft ? S.of(context).kiriMata : S.of(context).kananMata}",
             style: Theme.of(context).textTheme.headline1,
             textAlign: TextAlign.center,
           ),

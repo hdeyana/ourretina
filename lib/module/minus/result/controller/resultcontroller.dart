@@ -24,14 +24,14 @@ class ResultController extends BaseController with ResultPref {
   void onInit() {
     super.onInit();
     if (results != null) {
-      left = results.getRange(0, 3).toList();
-      right = results.getRange(4, 7).toList();
+      left = results.getRange(0, 4).toList();
+      right = results.getRange(4, 8).toList();
 
       calculateResult();
     }
   }
 
-  calculateResult() {
+  calculateResult() async {
     left.forEach((element) {
       if (element.question != element.answer) _leftScore--;
     });
@@ -42,8 +42,8 @@ class ResultController extends BaseController with ResultPref {
     result = ResultItemModel(leftScore: _leftScore, rightScore: _rightScore, results: results, testAt: DateTime.now().toIso8601String(), total: 4);
     update();
 
-    saveResult(result);
-    _events.recordFinishTest(result);
+    await saveResult(result);
+    await _events.recordFinishTest(result);
   }
 
   goHome() {

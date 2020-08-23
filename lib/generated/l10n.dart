@@ -33,10 +33,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Rapid test for your eyes anywhere`
+  /// `Rapid test for your eyes`
   String get tesSingkatKesehatanMataAndaDimanaSaja {
     return Intl.message(
-      'Rapid test for your eyes anywhere',
+      'Rapid test for your eyes',
       name: 'tesSingkatKesehatanMataAndaDimanaSaja',
       desc: '',
       args: [],
@@ -253,10 +253,10 @@ class S {
     );
   }
 
-  /// `make a distance`
+  /// `Make a distance`
   String get menjauh {
     return Intl.message(
-      'make a distance',
+      'Make a distance',
       name: 'menjauh',
       desc: '',
       args: [],
@@ -433,10 +433,10 @@ class S {
     );
   }
 
-  /// `Pay attention to gestures of your head.`
+  /// `Head Gesture Detection.`
   String get membacaGerakanGestureKepalaAnda {
     return Intl.message(
-      'Pay attention to gestures of your head.',
+      'Head Gesture Detection.',
       name: 'membacaGerakanGestureKepalaAnda',
       desc: '',
       args: [],
@@ -478,6 +478,36 @@ class S {
     return Intl.message(
       'Allow Permission',
       name: 'berikanPermisi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `UP`
+  String get atas {
+    return Intl.message(
+      'UP',
+      name: 'atas',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `LEFT`
+  String get kiri {
+    return Intl.message(
+      'LEFT',
+      name: 'kiri',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Test Result`
+  String get hasiTestAnda {
+    return Intl.message(
+      'Test Result',
+      name: 'hasiTestAnda',
       desc: '',
       args: [],
     );

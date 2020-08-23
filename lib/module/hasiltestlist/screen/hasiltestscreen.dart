@@ -1,3 +1,4 @@
+import 'package:app/generated/l10n.dart';
 import 'package:app/module/hasiltestlist/controller/hasiltestlistcontroller.dart';
 import 'package:app/module/hasiltestlist/widget/hasiltestitem.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ class HasilTestScreen extends StatelessWidget {
       builder: (controller) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('Hasi Test Anda'),
+            title: Text(S.of(context).hasiTestAnda),
           ),
           body: ListView.builder(
             padding: EdgeInsets.symmetric(horizontal: 16),

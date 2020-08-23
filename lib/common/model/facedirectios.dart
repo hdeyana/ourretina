@@ -1,3 +1,6 @@
+import 'package:app/generated/l10n.dart';
+import 'package:get/get.dart';
+
 enum FaceDirections {
   topleft,
   topright,
@@ -48,16 +51,16 @@ extension GetFace on int {
   String getFaceName() {
     switch (this) {
       case 0:
-        return "ATAS";
+        return S.of(Get.context).atas;
         break;
       case 1:
-        return "KANAN";
+        return S.of(Get.context).kanan;
         break;
       case 2:
-        return "KIRI";
+        return S.of(Get.context).kiri;
         break;
       case 3:
-        return "BAWAH";
+        return S.of(Get.context).bawah;
         break;
 
       default:

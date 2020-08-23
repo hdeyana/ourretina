@@ -68,9 +68,12 @@ class _SimpantTeleponJauhState extends State<SimpantTeleponJauh> with AnimationM
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text(
-              S.of(context).simpanSmartphoneAndaDan,
-              textAlign: TextAlign.center,
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                S.of(context).simpanSmartphoneAndaDan,
+                textAlign: TextAlign.center,
+              ),
             ),
             SizedBox(height: 16),
             SvgPicture.asset(AppAssets.headJarak),

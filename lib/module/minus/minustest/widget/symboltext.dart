@@ -52,10 +52,13 @@ class _SymbolTextState extends State<SymbolText> with AnimationMixin {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          S.of(context).perhatikanOrientasiSimbolDiBawahIni,
-          style: Theme.of(context).textTheme.headline4,
-          textAlign: TextAlign.center,
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: Text(
+            S.of(context).perhatikanOrientasiSimbolDiBawahIni,
+            style: Theme.of(context).textTheme.headline4,
+            textAlign: TextAlign.center,
+          ),
         ),
         SizedBox(height: 48),
         Container(

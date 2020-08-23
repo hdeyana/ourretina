@@ -63,10 +63,13 @@ class _MinusIntroScreenState extends State<MinusIntroScreen> {
                   }).toList(),
                 ),
                 SizedBox(height: 8),
-                Text(
-                  controller.titleAndDesc[controller.currentSlide]['title'],
-                  style: Theme.of(context).textTheme.headline3,
-                  textAlign: TextAlign.center,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Text(
+                    controller.titleAndDesc[controller.currentSlide]['title'],
+                    style: Theme.of(context).textTheme.headline3,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(24, 8, 24, 0),

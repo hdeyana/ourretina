@@ -32,7 +32,7 @@
   "hasilTest": "Hasil Test",
   "kembali": "Kembali",
   "disclaimer": "Perhatian",
-  "hasilTesTidakDapatMenggantikanSaranDariDokter": "Hasil tes tidak dapat menggantikan saran dari dokter",
+  "hasilTesTidakDapatMenggantikanSaranDariDokter": "Untuk hasil lebih baik. Silahkan kunjungi dokter",
   "kiriResult": "Kiri",
   "kananResult": "Kanan",
   "izinkanKamera": "Izinkan Kamera",
@@ -46,5 +46,6 @@
   "berikanPermisi": "Berikan Permisi",
   "atas": "ATAS",
   "kiri": "KIRI",
-  "hasiTestAnda": "Hasi Test Anda"
+  "hasiTestAnda": "Hasi Test Anda",
+  "tanggal": "Tanggal"
 }

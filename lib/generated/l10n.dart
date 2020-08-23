@@ -363,10 +363,10 @@ class S {
     );
   }
 
-  /// `The results can't replace the doctor's advice and prescription`
+  /// `For better results. Please visit a doctor`
   String get hasilTesTidakDapatMenggantikanSaranDariDokter {
     return Intl.message(
-      'The results can\'t replace the doctor\'s advice and prescription',
+      'For better results. Please visit a doctor',
       name: 'hasilTesTidakDapatMenggantikanSaranDariDokter',
       desc: '',
       args: [],
@@ -508,6 +508,16 @@ class S {
     return Intl.message(
       'Test Result',
       name: 'hasiTestAnda',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get tanggal {
+    return Intl.message(
+      'Date',
+      name: 'tanggal',
       desc: '',
       args: [],
     );

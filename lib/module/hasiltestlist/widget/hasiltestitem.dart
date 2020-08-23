@@ -1,5 +1,6 @@
 import 'package:app/app/route/approute.dart';
 import 'package:app/common/utils/resultutils.dart';
+import 'package:app/generated/l10n.dart';
 import 'package:app/module/minus/result/data/model/resultitemmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,7 +31,7 @@ class HasiTestItem extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
-                Text('Tanggal'),
+                Text(S.of(context).tanggal),
                 Spacer(),
                 Text(
                   date.day.toString(),
@@ -64,7 +65,7 @@ class _Score extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(isLeft ? 'Kiri' : 'Kanan'),
+        Text(isLeft ? S.of(context).kiriResult : S.of(context).kananResult),
         Expanded(
           child: Container(
             decoration: BoxDecoration(

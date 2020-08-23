@@ -32,7 +32,7 @@
   "hasilTest": "Test Result",
   "kembali": "Back",
   "disclaimer": "Disclaimer",
-  "hasilTesTidakDapatMenggantikanSaranDariDokter": "The results can't replace the doctor's advice and prescription",
+  "hasilTesTidakDapatMenggantikanSaranDariDokter": "For better results. Please visit a doctor",
   "kiriResult": "Left",
   "kananResult": "Right",
   "izinkanKamera": "Camera Permission",
@@ -46,5 +46,6 @@
   "berikanPermisi": "Allow Permission",
   "atas": "UP",
   "kiri": "LEFT",
-  "hasiTestAnda": "Test Result"
+  "hasiTestAnda": "Test Result",
+  "tanggal": "Date"
 }

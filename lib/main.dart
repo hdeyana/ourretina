@@ -1,3 +1,4 @@
+import 'package:app/app/notification/appnotification.dart';
 import 'package:app/app/route/approute.dart';
 import 'package:app/app/route/retinaroute.dart';
 import 'package:app/app/style/theme.dart';
@@ -30,6 +31,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     Get.put(GlobalController());
     Get.put(OurRetinaEvents());
+    NotificationHandler.init();
   }
 
   @override

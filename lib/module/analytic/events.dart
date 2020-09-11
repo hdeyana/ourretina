@@ -1,8 +1,11 @@
 import 'package:advertising_id/advertising_id.dart';
 import 'package:app/module/analytic/analyticplatform.dart';
 import 'package:app/module/minus/result/data/model/resultitemmodel.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 class OurRetinaEvents with AnalyticPlatform {
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+
   recordSkip() async {
     await sendfirebaseAnalytic(event: "skipped");
   }
